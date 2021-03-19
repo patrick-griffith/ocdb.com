@@ -1,6 +1,8 @@
 <template>
     <div class="container">   
-        <h1 class="pt-4 max-w-3xl mx-auto text-center mb-10 font-display leading-tight text-blue-800 text-3xl lg:text-4xl">Login</h1>
+        <div class="prose text-center mx-auto">
+            <h1>Login</h1>
+        </div>
         <form id="login-form" @submit.prevent="submitLogin" class="mx-auto max-w-sm">
             <label class="label">Email Address</label>                    
             <div><input class="input w-full" ref="email" type="email" v-validate="'required|email|max:191'" name="email" placeholder="name@email.com" v-model="email" /></div>
@@ -12,7 +14,7 @@
 
             <button class="button b2 ml-2 mt-10" native-type="submit"><span class="load"></span>Login</button>
 
-            <p class="mt-10 ml-2 article">
+            <p class="mt-10 ml-2 prose">
                 Forgot your password? <nuxt-link to="/auth/reset">Reset it.</nuxt-link><br/>
                 No account? <nuxt-link to="/auth/start">Sign up.</nuxt-link>
             </p>

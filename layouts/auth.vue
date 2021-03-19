@@ -1,5 +1,6 @@
 <template>
-  <div class="container py-20">
+  <div class="container">
+    <logo />
     <Nuxt />
   </div>
 </template>

@@ -1,6 +1,8 @@
 <template>
     <div class="container">   
-        <h1 class="pt-4 max-w-3xl mx-auto text-center mb-10 font-display leading-tight text-blue-800 text-3xl lg:text-4xl">Reset Your Password</h1>
+        <div class="prose text-center mx-auto">
+            <h1>Reset Your Password</h1>
+        </div>
         <form id="login-form" @submit.prevent="go">
 
             <div v-show="step === 0" class="mx-auto max-w-sm">

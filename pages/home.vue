@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+        this is a logged in page.
     </div>
 </template>
 <script>

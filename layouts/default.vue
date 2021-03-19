@@ -1,7 +1,5 @@
 <template>
-  <div class="container">
-    
-    <Nuxt />
-    
+  <div class="container">    
+    <Nuxt />    
   </div>
 </template>

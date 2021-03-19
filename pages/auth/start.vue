@@ -1,13 +1,12 @@
 <template>
-    <div class="container">      
+    <div class="container"> 
+        <div class="prose text-center mx-auto">
+            <h1>Create Account</h1>
+        </div>     
         <form id="signup-form" @submit.prevent="moveAlong">
             
-            <div>
-
-                <label class="label">Name</label>
-                <div><input class="input w-full" ref="name" type="text" v-validate="'required|max:191'" name="name" placeholder="Full Name" v-model="newUser.name" /></div>
-                <div class="validate-error" v-if="errors.first('name')">{{ errors.first('name') }}</div>
-
+            <div>                
+                
                 <label class="label">Email Address</label>
                 <div><input class="input w-full" ref="email" type="email" v-validate="'required|email|max:191'" name="email" placeholder="name@email.com" v-model="newUser.email" /></div>
                 <div class="validate-error" v-if="errors.first('email')">{{ errors.first('email') }}</div>
@@ -31,6 +30,10 @@
                 <div class="mt-10 ml-2">
                     <button class="button" native-type="submit"><span class="load"></span>Create Account --></button>
                 </div>
+
+                <p class="mt-10 ml-2 article">
+                    Already have an account? <nuxt-link to="/auth/login">Login</nuxt-link>
+                </p>
             </div>
             
         </form>
@@ -44,8 +47,6 @@ export default {
     data() {
         return {
             newUser: {
-                name:  '',
-                username: '',
                 email: '',
                 password: '',
                 password_confirmation: '',
@@ -80,23 +81,6 @@ export default {
                 this.$catchError(e)
             }   
         },
-        async checkUsername() {
-            try {
-                this.$store.dispatch('startLoading')
-                let usernameResponse = await this.$axios.get('/user/checkUsername/' + this.newUser.username)
-                this.$store.dispatch('stopLoading')
-                if(usernameResponse.data.available) {
-                    this.step = 2
-                    this.$nextTick(() => {
-                        this.$refs.email.focus()
-                    })
-                } else {
-                    this.$toast.error('Sorry, that username is already taken.')
-                }
-            } catch (e) { 
-                this.$catchError(e)
-            }   
-        },
         moveAlong() {
             if(!this.$store.state.isLoading) {
                 this.$validator.validateAll().then((result) => {
@@ -108,7 +92,7 @@ export default {
         },
     },
     async mounted() {
-        this.$refs.name.focus()        
+        this.$refs.email.focus()        
     }
 }
 </script>

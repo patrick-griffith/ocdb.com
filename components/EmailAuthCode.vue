@@ -1,7 +1,9 @@
 <template>
     <div class="text-center">
 
-        <p class="font-boldish mb-10 leading-normal text-blue-800">An email has been sent to you with a 6-digit code. <br class="hidden md:block"/>Please enter it here :)</p>
+        <div class="prose mb-10 mx-auto">
+            <p>An email has been sent to you with a 6-digit code. <br class="hidden md:block"/>Please enter it here :)</p>
+        </div>
 
         <form @submit.prevent="verify">
             <div id="email-auth-code" class="container max-w-xl grid grid-cols-6 gap-2 md:gap-4">
