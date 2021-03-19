@@ -4,6 +4,9 @@ import Vue from 'vue'
 import 'vue-awesome/icons/long-arrow-alt-right'
 import 'vue-awesome/icons/long-arrow-alt-left'
 
+import 'vue-awesome/icons/plus'
+import 'vue-awesome/icons/trash'
+
 import 'vue-awesome/icons/home'
 import 'vue-awesome/icons/at'
 import 'vue-awesome/icons/envelope'

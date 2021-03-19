@@ -75,7 +75,7 @@ export default {
   },
   toast: {
     position: 'top-center',
-    duration: 4000
+    duration: 2000
   },
   axios: {
     

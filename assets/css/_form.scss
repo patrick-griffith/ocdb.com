@@ -78,6 +78,7 @@ body.is-loading button {
   @apply px-2 mt-5 block mb-2;
 }
 .input {
+  @apply border;
   &[type=search], &[type=text], &[type=email], &[type=password] {
     @apply h-10 px-4 bg-white rounded-sm;
   }

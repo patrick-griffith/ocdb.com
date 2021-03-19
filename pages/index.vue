@@ -2,6 +2,7 @@
   <div>    
     <logo />
     <div class="prose mx-auto max-w-xl">
+      <p><nuxt-link to="/auth/start">Sign Up</nuxt-link><br/><nuxt-link to="/home">Login</nuxt-link></p>      
       
       <h1>One Click DB</h1>      
       <p>lorem ipsum dolor words, words, and more. lorem ipsum dolor words, words, and more. lorem ipsum dolor words, words, and more. lorem ipsum dolor words, words, and more. lorem ipsum dolor words, words, and more. lorem ipsum dolor words, words, and more. lorem ipsum dolor words, words, and more. </p>
@@ -13,8 +14,7 @@
       <ul>
         <li><strong>Deploy hook:</strong></li>
       </ul>
-
-      <nuxt-link to="/home">Login</nuxt-link>
+      
     </div>    
   </div>
 </template>
