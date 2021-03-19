@@ -1,0 +1,109 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+button:disabled, button[disabled]{
+  filter: grayscale(100%);
+	opacity: 0.5!important;
+	cursor: default!important;
+}
+
+body.is-loading button {
+  position: relative;
+  cursor: default!important;
+  .load {
+    //display: none;
+    @apply absolute inset-0 bg-blue-300;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1em;
+      height: 1em;
+      margin-left: -.5em;
+      margin-top: -.5em;
+      border: 4px solid theme('colors.blue.500');
+      border-radius: 50px;
+      border-top: 4px solid transparent;
+      -webkit-animation: load-animate infinite linear 1s;
+              animation: load-animate infinite linear 1s;
+    }
+  }
+}
+
+@-webkit-keyframes load-animate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    opacity: 0.35;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes load-animate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    opacity: 0.35;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+
+.label {
+  @apply px-2 mt-5 block mb-2;
+}
+.input {
+  &[type=search], &[type=text], &[type=email], &[type=password] {
+    @apply h-10 px-4 bg-white rounded-sm;
+  }
+  &[type=checkbox] {
+    @apply h-5 w-5 text-rose-400;
+  }
+  &[aria-invalid=true] {
+      @apply border border-rose-400 outline-none;
+  }
+}
+.validate-error {
+  @apply mt-1 mx-2 text-rose-600 text-sm;
+}
+
+.select {
+  position: relative;
+  select {
+    @apply inline-block appearance-none bg-blue-100 border border-gray-200 text-blue-800 py-2 px-3 pr-8 leading-1 rounded-sm;
+    &:hover {
+      @apply border-rose-400;
+    }
+    &:focus {
+      @apply outline-none bg-white border-rose-400;
+    }
+  }
+  svg {
+    @apply pointer-events-none -ml-6;
+  }
+}

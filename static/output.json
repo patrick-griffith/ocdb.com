@@ -1,0 +1,17 @@
+{
+    "site_title": "",
+    "posts": [{
+        "slug": "test",
+        "category": "skills",
+        "featured_image": "",
+        "description": "",
+        "title": "",
+        "content": ""
+    }]
+
+}
+
+//image
+//array (can call this collection)
+//object (can call this multiple)
+//repeater

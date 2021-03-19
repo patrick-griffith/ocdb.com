@@ -1,0 +1,44 @@
+@import 'form';
+
+
+html, body {
+    
+}
+html{
+    font-size: 16px;
+    @apply text-blueGray-900;
+    @apply leading-0;
+    @media screen and (min-width: theme('screens.sm')){
+        font-size: 17px;
+    }
+    @media screen and (min-width: theme('screens.lg')){
+        font-size: 18px;
+    }
+}
+body{
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+input {
+    &[aria-invalid=true] {
+        @apply border-2 border-rose-400 outline-none;
+    }
+  }
+
+a, .link {
+    @apply underline cursor-pointer;
+    &:hover {
+        @apply bg-blue-200;
+    }
+}
+
+
+
+.button {
+    @apply bg-yellow-300 underline;
+    &:hover {
+        @apply bg-blue-200;
+    }
+}
