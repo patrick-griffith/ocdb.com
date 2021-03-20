@@ -90,7 +90,7 @@ body.is-loading button {
   }
 }
 textarea.input {
-  @apply h-40 py-3 px-4 bg-white rounded-sm;
+  @apply h-40 py-3 px-4 bg-white rounded-sm leading-3;
 }
 .validate-error {
   @apply mt-1 mx-2 text-rose-600 text-sm;
