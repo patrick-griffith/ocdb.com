@@ -35,7 +35,7 @@
                             </div>
                         </label>            
                         <div class="text-right flex-grow">
-                            <a :href="jsonUrl" class="text-blue-600 font-bold button ml-10" target="_blank">{{ jsonUrl.slice(0,10) }}...{{ jsonUrl.slice(jsonUrl.length - 10,jsonUrl.length) }}</a>
+                            <a :href="jsonUrl" class="text-blue-600 font-bold button ml-10" target="_blank">Generate DB</a>
                         </div>
                     </div>
                     
