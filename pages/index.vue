@@ -128,7 +128,7 @@ export default {
           type: "string"
         },
         caption: {
-          value: "Just a single page with some text. Easy peasy.",
+          value: "An animated GIF screenshot of OCDB will go here.",
           type: "string"
         },
         why_title: {
