@@ -15,7 +15,7 @@
                 </div>
             </label>            
             <div class="text-right flex-grow">
-                <a :href="jsonUrl" class="text-blue-600 font-bold button ml-10" target="_blank">Generate DB</a>
+                <a :href="jsonUrl" class="text-blue-600 font-bold button ml-10" target="_blank">Get JSON URL</a>
             </div>
         </div>                    
     </div>
