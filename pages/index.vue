@@ -152,7 +152,7 @@ export default {
           type: "string"
         },
         roadmap_content: {
-          value: "These are some features coming soon.",
+          value: "Here go a list of features maybe?\n\n- feature 1\n\n- feature 2\n\n- oh hey, markdown is cool",
           type: "text"
         },
 
