@@ -17,8 +17,8 @@
 
     <div class="prose mx-auto max-w-xl text-center">
       
-      <h1>One Click DB is the fastest way create dynamic website data.</h1>
-      <p>How about installing a database that you and your clients will actually use! Is it the world’s simplest database? You tell me!</p>
+      <h1>Add a CMS to your website faster than you can spell WordPress.</h1>      
+      <p>One Click DB is the fastest way to add dynamic data to any website. For yourself and for clients. No fancy interface. No plugins. Just data. </p>
       <nuxt-link to="/auth/start" class="button">Generate DB --></nuxt-link>
       
     </div>
