@@ -1,88 +1,20 @@
 <template>
     <div>
-        <div class="py-2 border-b-2 border-blue-100 bg-white">
-            <div class="container flex items-center">
-                <div>
-                    <nuxt-link to="/">
-                        <img src="/img/logo.png" alt="One Click DB logo" width="44" class="inline" />
-                    </nuxt-link>
-                </div>
-                
-                <div class="flex-grow text-gray-600 inline-block text-right">                     
-                    <upgrade />
-                    <a href="mailto:mister@patgriffith.com" class="ml-5 hover:underline cursor-pointer">Help</a>
-                    <span @click="logout" class="ml-5 hover:underline cursor-pointer">Logout</span>
-                </div>
-            </div>
-        </div>
+        
+        <the-app-nav />
 
         <div class="container">
 
-            <div class="mt-10 mx-auto max-w-2xl">                
-                <div class="mb-12">
-                    <div class="flex items-center w-full">
-                        <label for="toogleA" class="flex items-center cursor-pointer">
-                            <div class="mr-3 text-gray-700 font-medium transition duration-200 ease-in-out" :class="[schemaMode ? 'opacity-25' : '']">
-                                Edit Content
-                            </div>
-                            <div class="relative">                
-                                <input id="toogleA" type="checkbox" class="hidden" v-model="schemaMode" />
-                                <div class="toggle__line w-10 h-4 bg-gray-300 rounded-full shadow-inner"></div>                
-                                <div class="toggle__dot transition duration-200 ease-in-out absolute w-6 h-6 bg-blue-700 rounded-full shadow inset-y-0 left-0"></div>
-                            </div>                
-                            <div class="ml-3 text-gray-700 font-medium transition duration-200 ease-in-out" :class="[!schemaMode ? 'opacity-25' : '']">
-                                Edit Schema
-                            </div>
-                        </label>            
-                        <div class="text-right flex-grow">
-                            <a :href="jsonUrl" class="text-blue-600 font-bold button ml-10" target="_blank">Generate DB</a>
-                        </div>
-                    </div>
-                    
-                </div>
+            <div class="mt-10 mx-auto max-w-2xl mb-20">                
+                
+                <the-database-nav v-model="schemaMode" />
                 
                 <div v-if="schemaMode">
-                    <div class="grid grid-cols-12 gap-5 mb-2">
-                        <div class="col-span-6 prose">
-                            <h3>Key</h3>
-                        </div>
-                        <div class="col-span-6 prose">
-                            <h3>Type</h3>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-12 gap-5 mb-5 items-center" v-for="(pair, index) in pairs" :key="index">
-                        <div class="col-span-6"><input type="text" class="input w-full" v-model="pair.key" /></div>
-                        <div class="col-span-5">
-                            <div class="select">
-                                <select v-model="pair.type" class="w-full">
-                                    <option value="string">String</option>
-                                    <option value="text">Text Box</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-span-1">
-                            <span class="cursor-pointer opacity-25 hover:opacity-100" @click="remove(index)"><v-icon name="trash" /></span>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-2">
-                        <span class="inline-block">
-                            <span class="cursor-pointer underline  hover:bg-blue-100" @click="addNewPair">
-                                + Add
-                            </span>
-                        </span>
-                    </div>
+                    <edit-object-schema :pairs="pairs" :level="1" />                    
                 </div>
                 <div v-else>
-                    <div v-for="(pair, index) in pairs" :key="index" class="mb-5">
-                        <div class="prose pl-3 mb-1">
-                            <h4>{{ pair.key }}</h4>
-                        </div>
-                        <div>
-                            <textarea v-if="pair.type == 'text'" class="input w-full" v-model="pair.value"></textarea>
-                            <input v-else type="text" class="input w-full" v-model="pair.value" />
-                        </div>
-                    </div>
+                    
+                    <edit-object-content :pairs="pairs" :level="1" />                    
                                 
                 </div>
 
@@ -96,6 +28,7 @@
     </div>
 </template>
 <script>
+
 export default {
     middleware: ['auth', 'emailConfirmed'],    
     data() {
@@ -132,10 +65,7 @@ export default {
             $catchError(e)
         }
     },
-    computed: {
-        jsonUrl() {
-            return process.env.API_URL + '/db/' + this.$auth.user.id + '/' + this.$auth.user.dbname
-        },
+    computed: {        
         dataChanged() {
             if(JSON.stringify(this.pairs) != JSON.stringify(this.initialPairs)) {
                 return true
@@ -174,10 +104,7 @@ export default {
             if(this.dataChanged) {
                 return true
             }
-        },
-        remove(index) {
-            this.pairs.splice(index, 1)
-        },
+        },        
         revertJson() {
             if(confirm("Are you sure?")) {
                 this.pairs = JSON.parse(JSON.stringify(this.initialPairs))
@@ -200,16 +127,9 @@ export default {
             this.initialPairs = JSON.parse(JSON.stringify(this.pairs))
             this.$toast.success('Saved!')
         },
-        async addNewPair() {
-            this.pairs.push({
-                key: '',
-                type: 'string',
-                value: ''
-            })
-        },
-        async logout() {
-            await this.$auth.logout();
-        }
+        // editSchemaMode(value) {
+        //     console.log('schema mode new value is ' + value)
+        // }                
     },
     watch: {
         schemaMode: function (val) {
@@ -218,14 +138,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" scoped>
-.toggle__dot {
-  top: -.25rem;
-  left: -.25rem;
-}
-
-input:checked ~ .toggle__dot {
-  transform: translateX(100%);
-}
-</style>
