@@ -1,12 +1,24 @@
 <template>
     <div class="">
-        <logo />
+        <div class="my-10 mx-auto max-w-lg text-center">      
+            <div>
+                <nuxt-link to="/">
+                <img src="/img/logo.png" alt="One Click DB logo" width="50" class="inline" />
+                </nuxt-link>
+            </div>
+            
+            <div class="text-gray-600 bg-blue-100 inline-block  py-2 px-5 rounded-md mt-5"> 
+                <a :href="jsonUrl" class="text-blue-600 font-bold hover:underline" target="_blank">Open JSON URL</a>
+                <a href="mailto:mister@patgriffith.com" class="ml-5 hover:underline cursor-pointer">Help</a>
+                <span @click="logout" class="ml-5 hover:underline cursor-pointer">Logout</span>
+            </div>
+        </div>
 
-        <div class="grid grid-cols-12 gap-5 prose">
-            <div class="col-span-3">
+        <div class="grid grid-cols-12 gap-5 mb-2 mt-20">
+            <div class="col-span-3 prose">
                 <h3>Key</h3>
             </div>
-            <div class="col-span-9">
+            <div class="col-span-9 prose">
                 <h3>Value</h3>
             </div>
         </div>
@@ -20,12 +32,10 @@
 
         <span class="cursor-pointer opacity-25 hover:opacity-100" @click="addNewPair"><v-icon name="plus" /></span><br/><br/><br/><br/><br/><br/>
         
-        <span class="button text-lg" @click="saveJson">Save</span>  <a :href="jsonUrl" class="text-lg button ml-5" target="_blank">Open JSON URL</a>
-        <br/><br/><br/><br/>
-        <span @click="logout" class="link">Logout</span>
-        <br/><br/><br/><br/>
-
-
+        <div v-if="dataChanged">
+            <span class="button text-lg" @click="saveJson">Save Changes</span>
+            <span class="button text-lg ml-5" @click="revertJson">Discard Changes</span>
+        </div>
 
     </div>
 </template>
@@ -34,7 +44,7 @@ export default {
     middleware: ['auth', 'emailConfirmed'],    
     data() {
         return {
-            json: ''
+            json: '',
         }
     },
     async asyncData({ $auth, $catchError }) {
@@ -47,8 +57,10 @@ export default {
                     "value": value
                 })
             }
+
             return {
-                pairs: objArray
+                pairs: objArray,
+                initialPairs: JSON.parse(JSON.stringify(objArray))
             }
         } catch(e) {
             $catchError(e)
@@ -57,11 +69,32 @@ export default {
     computed: {
         jsonUrl() {
             return process.env.API_URL + '/db/' + this.$auth.user.id + '/' + this.$auth.user.dbname
+        },
+        dataChanged() {
+            if(JSON.stringify(this.pairs) != JSON.stringify(this.initialPairs)) {
+                return true
+            } else {
+                return false
+            }
         }
     },
-    methods: {   
+    mounted() {
+        window.onbeforeunload = this.warnUserOnExit
+    },
+    methods: {
+        warnUserOnExit() {
+            if(this.dataChanged) {
+                return true
+            }
+        },
         remove(index) {
             this.pairs.splice(index, 1)
+        },
+        revertJson() {
+            if(confirm("Are you sure?")) {
+                this.pairs = JSON.parse(JSON.stringify(this.initialPairs))
+                this.$toast.success('Data reset!')
+            }
         },
         async saveJson() {
             this.json = new Object()
@@ -73,6 +106,7 @@ export default {
             await this.$axios.patch('/user/setDB', {
                 json: this.json
             })
+            this.initialPairs = JSON.parse(JSON.stringify(this.pairs))
             this.$toast.success('Saved!')
         },
         async addNewPair() {

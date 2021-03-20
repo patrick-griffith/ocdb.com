@@ -1,7 +1,6 @@
 <template>
   <div>    
-    <div class="my-10 mx-auto max-w-lg text-center">
-      
+    <div class="my-10 mx-auto max-w-lg text-center">      
       <div>
         <nuxt-link to="/">
           <img src="/img/logo.png" alt="One Click DB logo" width="50" class="inline" />
@@ -81,10 +80,12 @@
     <div class="prose mx-auto max-w-xl mt-20 mb-20" id="roadmap"> 
       <h2>Roadmap</h2>
       <p>One Click DB is already awesome. And it’s about to get even awesomer (while staying simple).</p>
-      <p>Here's a list features coming in Spring 2021.</p>
-      <p>Note that the early-bird plan will <strong>disappear forever</strong> once this list is completed. So.. what’re you waiting for 😬</p>
+      <p>Here's a list of features coming in Spring 2021. Note that the early-bird plan will <strong>disappear forever</strong> once this list is completed. So.. what’re you waiting for 😬.</p>
       <ul>
-        <li>✅ <strong>Deploy hook:</strong></li>
+        <li>✅ <strong>Unlimited Databases:</strong> </li>
+        <li>✅ <strong>Unlimited Users:</strong> </li>
+        <li>✅ <strong>Deploy Trigger:</strong> Allow for the pinging of a url (eg a Netlify Deploy Hook) each time data is saved. This’ll be awesome to let static site generators work their magic.</li>
+        <li>✅ <strong>Install demos:</strong> I will create detailed instructions on how to set this up for Vue, React, and a variety of other frameworks.</li>
       </ul>
       
     </div>  
