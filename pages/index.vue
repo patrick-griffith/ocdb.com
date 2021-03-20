@@ -1,5 +1,5 @@
 <template>
-  <div>    
+  <div class="container">    
     <div class="my-10 mx-auto max-w-lg text-center">      
       <div>
         <nuxt-link to="/">
