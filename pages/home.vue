@@ -10,12 +10,10 @@
                 <the-database-nav />
                 
                 <div v-if="schemaMode">
-                    <edit-object-schema :pairs="pairs" :level="1" />                    
+                    <edit-object-schema :passedPairs="pairs" :level="1" />
                 </div>
                 <div v-else>
-                    
-                    <edit-object-content :pairs="pairs" :level="1" />                    
-                                
+                    <edit-object-content :passedPairs="pairs" :level="1" />                                
                 </div>
 
                 <div v-if="dataChanged">

@@ -11,10 +11,10 @@
         <div v-for="(pair, index) in pairs" :key="index">
             <div :class="[pair.type == 'collection' ? 'bg-gray-900 p-2 -mx-2 rounded-sm' : '']">
                 <div class="grid grid-cols-12 gap-5 mb-5 items-center">
-                    <div class="col-span-6"><input type="text" class="input w-full" v-model="pair.key" /></div>
+                    <div class="col-span-6"><input type="text" class="input w-full" v-model="pair.key" @input="changeKey(index)" /></div>
                     <div class="col-span-5">
                         <div class="select">
-                            <select v-model="pair.type" class="w-full">
+                            <select v-model="pair.type" @change="changeType(index)" class="w-full">
                                 <option value="string">String</option>
                                 <option value="text">Text Box</option>
                                 <option value="collection" v-if="level === 1">Collection</option>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="pl-10 pb-5" v-if="pair.type == 'collection' && level == 1">
-                    <edit-object-schema :pairs="new Array()" :level="2" />
+                    <edit-object-schema :pairs="new Array()" :level="2" :level1index="index" />
                 </div>
             </div>
         </div>
@@ -41,11 +41,22 @@
     </div>
 </template>
 <script>
-import EditObjectContent from './EditObjectContent.vue'
 export default {
-  components: { EditObjectContent },
-    props: ['pairs', 'level'],
+    props: ['passedPairs', 'level', 'level1index'],
+    data() {
+        return {
+            pairs: this.passedPairs ? JSON.parse(JSON.stringify(this.passedPairs)) : []
+        }
+    },
     methods: {
+        changeType(index) {
+            let val = this.pairs[index].type
+            this.$store.dispatch('updatePairType', {index, val})
+        },
+        changeKey(index) {
+            let val = this.pairs[index].key
+            this.$store.dispatch('updatePairKey', {index, val})
+        },
         async addNewPair() {
             this.pairs.push({
                 key: '',
@@ -61,6 +72,6 @@ export default {
             console.log('trying to update pairs')
             //this.pairs = value
         }
-    }
+    },
 }
 </script>

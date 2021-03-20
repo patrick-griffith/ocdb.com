@@ -19,6 +19,12 @@ export const mutations = {
     },
     UPDATE_SCHEMA_MODE(state, value) {
         state.auth.user.schemaMode = value
+    },
+    UPDATE_PAIR_KEY(state, {index, val}) {
+        state.pairs[index].key = val
+    },
+    UPDATE_PAIR_TYPE(state, {index, val}) {
+        state.pairs[index].type = val
     }
 }
 
@@ -69,6 +75,12 @@ export const actions = {
         let val = !context.state.auth.user.schemaMode
         context.commit('UPDATE_SCHEMA_MODE', val)
         this.$axios.patch('/user/setSchemaMode/' + (val ? '1' : '0'))
+    },
+    async updatePairKey(context, {index, val}) {
+        context.commit('UPDATE_PAIR_KEY', {index, val})
+    },
+    async updatePairType(context, {index, val}) {
+        context.commit('UPDATE_PAIR_TYPE', {index, val})
     }
 
 }

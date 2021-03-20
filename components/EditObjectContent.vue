@@ -13,6 +13,11 @@
 </template>
 <script>
 export default {
-    props: ['pairs', 'level']
+    props: ['passedPairs', 'level'],
+    data() {
+        return {
+            pairs: this.passedPairs
+        }
+    }
 }
 </script>
