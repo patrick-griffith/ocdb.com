@@ -7,7 +7,7 @@
 
             <div class="mt-10 mx-auto max-w-2xl mb-20">                
                 
-                <the-database-nav v-model="schemaMode" />
+                <the-database-nav />
                 
                 <div v-if="schemaMode">
                     <edit-object-schema :pairs="pairs" :level="1" />                    
@@ -28,14 +28,9 @@
     </div>
 </template>
 <script>
-
+import { mapGetters } from "vuex";
 export default {
     middleware: ['auth', 'emailConfirmed'],    
-    data() {
-        return {
-            json: ''
-        }
-    },
     head() {
         return {      
             title: 'One Click DB',
@@ -44,30 +39,17 @@ export default {
             }
         };
     },
-    async asyncData({ $auth, $catchError }) {
+    async asyncData({ $auth, $catchError, store }) {
         try {
-            let storedJson = JSON.parse($auth.user.json)
-            let objArray = []
-            for (const [key, value] of Object.entries(storedJson)) {
-                objArray.push({
-                    "key": key,
-                    "type": value.type,
-                    "value": value.value
-                })
-            }
-
-            return {
-                schemaMode: $auth.user.schemaMode,
-                pairs: objArray,
-                initialPairs: JSON.parse(JSON.stringify(objArray))
-            }
+            store.dispatch('createPairs');                        
         } catch(e) {
             $catchError(e)
         }
     },
-    computed: {        
+    computed: {  
+        ...mapGetters(["schemaMode", "pairs", "initPairs"]),
         dataChanged() {
-            if(JSON.stringify(this.pairs) != JSON.stringify(this.initialPairs)) {
+            if(JSON.stringify(this.pairs) != JSON.stringify(this.initPairs)) {
                 return true
             } else {
                 return false
@@ -75,8 +57,7 @@ export default {
         }
     },
     mounted() {
-        window.onbeforeunload = this.warnUserOnExit        
-
+        window.onbeforeunload = this.warnUserOnExit
         if(this.$route.query.upgrade) {
             if(this.$route.query.upgrade == 'booyah' && this.$auth.user.pro == 0) {
                 this.setPro()                
@@ -85,9 +66,7 @@ export default {
     },
     methods: {
         async setPro() {
-            await this.$axios.patch('/user/setPro', {
-                json: this.json
-            })
+            await this.$axios.patch('/user/setPro')
             
             //update the auth user record
             const updatedUser = {...this.$auth.user}
@@ -107,34 +86,14 @@ export default {
         },        
         revertJson() {
             if(confirm("Are you sure?")) {
-                this.pairs = JSON.parse(JSON.stringify(this.initialPairs))
+                this.$store.dispatch('revertPairs')                
                 this.$toast.success('Data reset!')
             }
         },
         async saveJson() {
-            this.json = new Object()
-            this.pairs.forEach(element => {
-                if(element.key.length) {
-                    this.json[element.key] = {
-                        type: element.type,
-                        value: element.value
-                    }
-                }
-            })
-            await this.$axios.patch('/user/setDB', {
-                json: this.json
-            })
-            this.initialPairs = JSON.parse(JSON.stringify(this.pairs))
+            this.$store.dispatch('saveJson')            
             this.$toast.success('Saved!')
-        },
-        // editSchemaMode(value) {
-        //     console.log('schema mode new value is ' + value)
-        // }                
-    },
-    watch: {
-        schemaMode: function (val) {
-            this.$axios.patch('/user/setSchemaMode/' + (val ? '1' : '0'))
-        },
-    }
+        },              
+    },    
 }
 </script>

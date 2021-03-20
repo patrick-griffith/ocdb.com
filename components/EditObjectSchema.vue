@@ -52,10 +52,15 @@ export default {
                 type: 'string',
                 value: '',
             })
+            this.$emit('updatePairs', this.pairs)
         },
         remove(index) {
             this.pairs.splice(index, 1)
         },
+        async updatePairs(value) {
+            console.log('trying to update pairs')
+            //this.pairs = value
+        }
     }
 }
 </script>
