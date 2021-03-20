@@ -13,7 +13,8 @@ export default {
     SENDFOX_FORM_ID: process.env.SENDFOX_FORM_ID,
     SENTRY_DEBUG: process.env.SENTRY_DEBUG,
     SENTRY_DSN: process.env.SENTRY_DSN,
-    ENV: process.env.ENV
+    ENV: process.env.ENV,
+    STRIPE_PK: process.env.STRIPE_PK,
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -43,6 +44,8 @@ export default {
     '~/plugins/packages.js',
     '~/plugins/vue-awesome.js',
     '~/plugins/error.js',
+    { src: '~/plugins/vue-stripe.js', ssr: false },
+    { src: '~/plugins/confetti.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

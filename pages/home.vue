@@ -4,12 +4,12 @@
             <div class="container flex items-center">
                 <div>
                     <nuxt-link to="/">
-                    <img src="/img/logo.png" alt="One Click DB logo" width="44" class="inline" />
+                        <img src="/img/logo.png" alt="One Click DB logo" width="44" class="inline" />
                     </nuxt-link>
                 </div>
                 
-                <div class="flex-grow text-gray-600 inline-block text-right"> 
-                    <a :href="jsonUrl" class="text-blue-600 font-bold button" target="_blank">UPGRADE</a>
+                <div class="flex-grow text-gray-600 inline-block text-right">                     
+                    <upgrade />
                     <a href="mailto:mister@patgriffith.com" class="ml-5 hover:underline cursor-pointer">Help</a>
                     <span @click="logout" class="ml-5 hover:underline cursor-pointer">Logout</span>
                 </div>
@@ -145,9 +145,31 @@ export default {
         }
     },
     mounted() {
-        window.onbeforeunload = this.warnUserOnExit
+        window.onbeforeunload = this.warnUserOnExit        
+
+        if(this.$route.query.upgrade) {
+            if(this.$route.query.upgrade == 'booyah' && this.$auth.user.pro == 0) {
+                this.setPro()                
+            }
+        }
     },
     methods: {
+        async setPro() {
+            await this.$axios.patch('/user/setPro', {
+                json: this.json
+            })
+            
+            //update the auth user record
+            const updatedUser = {...this.$auth.user}
+            updatedUser.pro = 1;
+            this.$auth.setUser(updatedUser)
+
+            this.$confetti.start();
+            setTimeout(this.stopConfetti, 4000);
+        },
+        stopConfetti() {
+            this.$confetti.stop()
+        },
         warnUserOnExit() {
             if(this.dataChanged) {
                 return true
