@@ -100,6 +100,7 @@
 
     <div class="text-center">
       <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">✅ another item off the Todo list! I made my personal page dynamic using <a href="https://t.co/DY51sl0jLT">https://t.co/DY51sl0jLT</a> – a top contender for the One Click DB Hackathon by <a href="https://twitter.com/MrPatGriffith?ref_src=twsrc%5Etfw">@MrPatGriffith</a>. Took about 2 minutes to add enough jQuery to make bits of my personal page dynamic. <a href="https://t.co/i8KPkHBqmF">pic.twitter.com/i8KPkHBqmF</a></p>&mdash; James Futhey 🔊 (@kidgdzilla) <a href="https://twitter.com/kidgdzilla/status/1373538524943720449?ref_src=twsrc%5Etfw">March 21, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+      <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I&#39;m building with Pat&#39;s OneClickDB Implementation.<br><br>Here&#39;s what I&#39;m up to:<br><br>1. Layout the data in the Developer view<br>2. Label my data in the Editor view<br>3. Create a basic HTML template<br>4. Use a basic JavaScript fetch<br>5. Use JavaScript to put the data values into the HTML.<br><br>EASY! <a href="https://t.co/mSpTki4KyY">https://t.co/mSpTki4KyY</a></p>&mdash; Brian Ball (@brianball) <a href="https://twitter.com/brianball/status/1373695521735331840?ref_src=twsrc%5Etfw">March 21, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
     </div>
 
     <div class="prose mx-auto max-w-xl mb-20 text-center">
