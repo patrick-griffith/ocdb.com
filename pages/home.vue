@@ -21,7 +21,7 @@
                     <span class="button text-lg ml-5" @click="revertJson">Discard Changes</span>
                 </div>
 
-                <div class="prose mt-20">
+                <div class="prose mt-20" v-if="false">
                     <code>
                         <pre>{{ pairs }}</pre>
                     </code>

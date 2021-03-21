@@ -23,8 +23,11 @@ export const mutations = {
     UPDATE_KEY(state, {index, val}) {
         state.pairs[index].key = val
     },
-    UPDATE_COLLECTION_KEY(state, {index, val, l1}) {
+    UPDATE_COLLECTION_KEY(state, {index, val, l1}) {        
         state.pairs[l1].schema[index].key = val
+        state.pairs[l1].data.forEach(d => {
+            d[index].key = val
+        }) 
     },
     UPDATE_TYPE(state, {index, val}) {
         state.pairs[index].type = val
@@ -39,19 +42,41 @@ export const mutations = {
         state.pairs[index].data = val
     },
     DELETE_COLLECTION_DATA(state, {index, l1}) {
-        //console.log(state.pairs[l1].data[index])
         state.pairs[l1].data.splice(index, 1)
     },
     ADD_NEW_PAIR(state, {newPair, l1}) {
         if(l1) {
             state.pairs[l1].schema.push(newPair)
+
+            state.pairs[l1].data.forEach(d => {
+                d.push({
+                    key: newPair.key,
+                    type: newPair.type,
+                    value: ""
+                    
+                })
+            })            
+
         } else {
             state.pairs.push(newPair)
         }
     },
     REMOVE_PAIR(state, {l1, index}) {
         if(l1) {
+            let key = state.pairs[l1].schema[index].key
             state.pairs[l1].schema.splice(index, 1)
+            
+            //also need to delete all the rows that have this key
+            let newData = []
+            state.pairs[l1].data.forEach(d => {
+                const obj = d.filter(v => {
+                    return v.key != key
+                });
+                newData.push(obj)
+            })
+            state.pairs[l1].data = newData
+
+
         } else {
             state.pairs.splice(index, 1)
         }
