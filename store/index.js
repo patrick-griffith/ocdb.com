@@ -45,6 +45,19 @@ export const mutations = {
         } else {
             state.pairs.splice(index, 1)
         }
+    },
+    ADD_CONTENT_ROW(state, l1) {
+
+        let row = []
+
+        state.pairs[l1].schema.forEach(e => {
+            row.push( {
+                "key": e.key,
+                "type": e.type,
+                "value": ""
+            })
+        })
+        state.pairs[l1].data.push(row)
     }
 }
 
@@ -129,6 +142,9 @@ export const actions = {
     },
     removePair(context, {index, l1}) {
         context.commit('REMOVE_PAIR', {index, l1})
+    },
+    addContentRow(context, l1) {
+        context.commit('ADD_CONTENT_ROW', l1)
     }
 
 }

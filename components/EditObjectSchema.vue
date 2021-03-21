@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="pl-10 pb-5" v-if="pair.type == 'collection' && level == 1">
-                    <edit-object-schema :pairs="new Array()" :level="2" :level1index="index" />
+                    <edit-object-schema :passedPairs="pair.schema ? pair.schema : []" :level="2" :level1index="index" />
                 </div>
             </div>
         </div>
