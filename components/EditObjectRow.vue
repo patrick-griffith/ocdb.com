@@ -15,10 +15,10 @@
                         <div class="mb-5">
                             <h4 class="pl-3 text-gray-200 font-bold mb-2 inline-block">{{ r.key }}</h4>
                             <textarea v-if="r.type == 'text'" class="input w-full" v-model="r.value"></textarea>                            
-                            <input v-else type="text" class="input w-full" v-model="r.value" />
+                            <input v-else type="text" class="input w-full" v-model="r.value"/>
                         </div>
                     </div>
-                    <span class="button" @click="modalVisible = false">close</span>
+                    <span class="button" @click="closeModal">close</span>
                 </div>                
             </div>
         </div>
@@ -26,11 +26,17 @@
 </template>
 <script>
 export default {
-    props: ['d'],
+    props: ['d', 'level1index'],
     data() {
         return {
             modalVisible: false
         }
+    },
+    methods: {
+        closeModal() {
+            this.modalVisible = false
+            this.$emit('update', this.level1index)
+        },
     }
 }
 </script>

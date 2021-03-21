@@ -35,8 +35,8 @@ export const mutations = {
     UPDATE_VALUE(state, {index, val}) {
         state.pairs[index].value = val
     },
-    UPDATE_COLLECTION_VALUE(state, {index, val, l1}) {
-        state.pairs[l1].schema[index].value = val
+    UPDATE_COLLECTION_DATA(state, {index, val}) {
+        state.pairs[index].data = val
     },
     ADD_NEW_PAIR(state, {newPair, l1}) {
         if(l1) {
@@ -129,12 +129,11 @@ export const actions = {
             context.commit('UPDATE_COLLECTION_TYPE', {index, val, l1})
         }
     },
-    async updateValue(context, {index, val, l, l1}) {
-        if(l == 1) {
-            context.commit('UPDATE_VALUE', {index, val})
-        } else {
-            context.commit('UPDATE_COLLECTION_VALUE', {index, val, l1})
-        }
+    async updateValue(context, {index, val}) {
+        context.commit('UPDATE_VALUE', {index, val})
+    },
+    async updateCollectionData(context, {index, val}) {
+        context.commit('UPDATE_COLLECTION_DATA', {index, val})
     },
     addPair(context, {newPair, l1}) {
         context.commit('ADD_NEW_PAIR', {newPair, l1})

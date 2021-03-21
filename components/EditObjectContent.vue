@@ -8,7 +8,7 @@
                 <div>
                     <div v-if="pair.type == 'collection'" class="bg-gray-900 p-5 -mx-2 rounded-sm mb-5">
                         <template v-for="(d) in pair.data">
-                            <edit-object-row :d="d" :key="d.key" />
+                            <edit-object-row :d="d" :key="d.key" :level1index="index" @update="changeCollectionData"/>
                         </template>
                         <span class="inline-block mt-5 cursor-pointer underline text-white hover:bg-blue-800" @click="addRow(index)">
                             + Add
@@ -32,8 +32,11 @@ export default {
     methods: {
         changeValue(index) {
             let val = this.pairs[index].value
-            let l = 1
-            this.$store.dispatch('updateValue', {index, val, l})
+            this.$store.dispatch('updateValue', {index, val})
+        },
+        changeCollectionData(index) {
+            let val = JSON.parse(JSON.stringify(this.pairs[index].data))
+            this.$store.dispatch('updateCollectionData', {index, val})
         },
         addRow(l1) {
             
