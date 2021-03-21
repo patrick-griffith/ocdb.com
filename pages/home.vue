@@ -14,12 +14,7 @@
                 </div>
                 <div v-else>
                     <edit-object-content :passedPairs="pairs" :level="1" />                                
-                </div>
-
-                <div v-if="dataChanged" class="text-right">
-                    <span class="button text-lg" @click="saveJson">Save Changes</span>
-                    <span class="button text-lg ml-5" @click="revertJson">Discard Changes</span>
-                </div>
+                </div>                
 
                 <div class="prose mt-20" v-if="false">
                     <code>
@@ -68,6 +63,7 @@ export default {
                 this.setPro()                
             }
         }
+        setTimeout(this.saveJson, 1000)
     },
     methods: {
         async setPro() {
@@ -88,16 +84,12 @@ export default {
             if(this.dataChanged) {
                 return true
             }
-        },        
-        revertJson() {
-            if(confirm("Are you sure?")) {
-                this.$store.dispatch('revertPairs')                
-                //this.$toast.success('Data reset!') //TODO
-            }
-        },
+        }, 
         async saveJson() {
-            this.$store.dispatch('saveJson')            
-            //this.$toast.success('Saved!') //TODO
+            if(this.dataChanged) {
+                this.$store.dispatch('saveJson')
+            }
+            setTimeout(this.saveJson, 1000)
         },              
     },    
 }

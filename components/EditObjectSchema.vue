@@ -85,10 +85,12 @@ export default {
             this.$store.dispatch('addPair', {newPair, l1 })
         },
         remove(index) {
-            let l1 = this.level1index
+            if(confirm('Are you sure?')) {
+                let l1 = this.level1index
 
-            this.pairs.splice(index, 1)
-            this.$store.dispatch('removePair', {index, l1 })
+                this.pairs.splice(index, 1)
+                this.$store.dispatch('removePair', {index, l1 })
+            }
         },
         async updatePairs(value) {
             console.log('trying to update pairs')

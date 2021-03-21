@@ -39,8 +39,10 @@ export default {
     },
     methods: {
         deleteRow() {
-            this.modalVisible = false
-            this.$emit('delete')
+            if(confirm('Are you sure?')) {
+                this.modalVisible = false
+                this.$emit('delete')
+            }
         },
         closeModal() {
             this.modalVisible = false

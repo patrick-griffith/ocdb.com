@@ -46,19 +46,19 @@
         <div class="bg-blue-100 p-5 prose">
           <h2 class="mb-0">Solo</h2>
           <h4>FREE</h4>
-          <p>1 user and 1 database.<br/>Perfect for your personal website.</p>
+          <p>1 user. 1 database.<br/>Perfect for your personal website.</p>
           <nuxt-link to="/auth/start" class="button">Sign Up Now</nuxt-link>
         </div>
         <div class="bg-blue-100 p-5 prose">
           <h2>Early Bird</h2>
           <h4>$75 once</h4>
-          <p>Lifetime access to the Pro plan.<br/>Only available until <nuxt-link to="/#roadmap">this roadmap</nuxt-link> is done.</p>
+          <p>Lifetime access to the Pro plan.</p>
           <nuxt-link to="/auth/start" class="button">Sign Up Now</nuxt-link>
         </div>
         <div class="bg-gray-100 p-5 prose">
           <h2>Pro</h2>
           <h4>$15/mo</h4>
-          <p>Unlimited users and databases.<br/>Perfect for freelancers and entrepreneurs.</p>
+          <p>Unlimited users + databases.<br/>Perfect for freelancers and entrepreneurs.</p>
           <span>Available Soon</span>
         </div>
       </div>
@@ -128,15 +128,19 @@ export default {
           type: "string"
         },
         caption: {
-          value: "An animated GIF screenshot of OCDB will go here.",
+          value: "Create a database in about 25 seconds.<br/>Then install it on your website in about 2 minutes.",
           type: "string"
         },
         why_title: {
-          value: "Why should you care?",
+          value: "Why choose One Click DB?",
           type: "string"
         },
          why_content: {
-          value: "Lorem ipsum",
+          value: `I’m  happy you asked 🤣! Here are a few lovely use cases:
+          \n\n1. **Keep your website up to date.**
+          \n\n2. **Give your clients the worl's simplest CMS.**
+          \n\n3. **Give your clients the worl's simplest CMS.**
+          `,
           type: "text"
         },
         pricing_title: {
@@ -144,7 +148,7 @@ export default {
           type: "string"
         },
         pricing_content: {
-          value: "Databases shouldn’t be complicated. And they shouldn’t be expensive either. One Click DB is free forever for a single user and website. And pretty darn affordable for every other case.\n\nWhy so cheap? The same reason it’s so fast. Caching!",
+          value: "Databases shouldn’t be complicated. And they shouldn’t be expensive either. One Click DB is free forever for a single user with a single database. And pretty darn affordable if you wanna upgrade.\n\nWhy so cheap? The same reason it’s so fast. Caching!",
           type: "text"
         },
         roadmap_title: {
