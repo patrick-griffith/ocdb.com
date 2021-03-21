@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container relative">
     <div class="my-10 mx-auto max-w-lg text-center">      
       <div>
         <nuxt-link to="/">
@@ -12,20 +12,27 @@
         <nuxt-link to="/home" class="text-blue-600 font-bold hover:underline">login</nuxt-link>
         <nuxt-link to="/auth/start" class="button text-blue-600 bg-amber-300 font-bold ml-5" v-if="!$auth.loggedIn">sign up for free</nuxt-link>
       </div>
-    </div>    
+    </div>  
 
-    <div class="prose mx-auto max-w-xl text-center">
-      
-      <h1>The fastest database... ever?</h1>      
-      <p>OneClickDB is the fastest way to add dynamic data to your website.<br class="hidden lg:block"/>Or your client's website. Don’t believe me? <nuxt-link to="/auth/start" class='button'>Try it for yourself.</nuxt-link></p>      
+     <div class="absolute left-0 right-0 hidden lg:block">
+       <div class="mx-auto max-w-5xl -mt-10">
+        <span class="text-8xl font-black text-blue-50 float-left transform rotate-6">{{</span>
+        <span class="text-8xl font-black text-blue-50 float-right transform -rotate-6">}}</span>
+       </div>
+    </div>  
+
+    <div class="prose mx-auto max-w-xl text-center">      
+      <h1 class="">The fastest way to go<br class="hidden md:block"/> from static to dynamic.</h1>      
+      <p>OneClickDB is the fastest way to add dynamic data to your website.<br class="hidden lg:block"/>Or your client's website. Or that cool template you just saw. <nuxt-link to="/auth/start" class='button'>Try it for yourself.</nuxt-link></p>      
       
        <div class="text-center mt-12">
         <p><nuxt-link to="/#developers">Fast for <strong>Developers</strong></nuxt-link></p>
         <p><nuxt-link to="/#editors">Fast for <strong>Editors</strong></nuxt-link></p>
         <p><nuxt-link to="/#visitors">Fast for <strong>Visitors</strong></nuxt-link></p>
       </div>
-
     </div>
+
+   
 
     <section class="mx-auto mt-20 max-w-3xl border-2 rounded-lg border-black h-full bg-white">
         <div class="px-5 pt-3 pb-2 leading-none border-b-2 border-black">
@@ -57,36 +64,47 @@
         <p>Content Management Systems are slow. But OneClickDB is fast, with an average response time of <code>0.052 seconds</code>.</p>
         <p>Speed <a href="https://www.nngroup.com/articles/website-response-times/" target="_blank">is critical</a> for a good user experience. So which should you choose?</p>
       </div>
-    </div>
-    
-    
+    </div>    
+
     <div id="pricing" class=" mt-32">
       <div class="prose mx-auto max-w-xl mb-10">
-        <h2>Fast... get your wallet!</h2>
+        <h2>Grab Your Wallet!</h2>
         <div v-html="$md.render(content.pricing_content.value )"></div>        
       </div>
       <div class="grid md:grid-cols-3 gap-5 mx-auto">
-        <div class="bg-blue-100 p-5 prose">
+        <div class="bg-blue-100 py-5 px-8 rounded-md prose">
           <h2 class="mb-0">Solo</h2>
           <h4>FREE</h4>
           <p>1 user. 1 database.<br/>Perfect for your personal website.</p>
           <nuxt-link to="/auth/start" class="text-blue-600 font-bold button"  v-if="!$auth.loggedIn">Sign Up Now</nuxt-link>
         </div>
-        <div class="bg-blue-100 p-5 prose">
+        <div class="bg-blue-100 py-5 px-8 rounded-md prose">
           <h2>Early Bird</h2>
           <h4>$75 once</h4>
-          <p>Lifetime access to the Pro plan. This plan won’t last long!</p>
+          <p>Lifetime access to the Pro plan. Probably hurry up if you want this.</p>
           <nuxt-link to="/auth/start" class="text-blue-600 font-bold button" v-if="!$auth.loggedIn">Sign Up Now</nuxt-link>
           <upgrade v-else />
           
         </div>
-        <div class="bg-gray-100 p-5 prose">
+        <div class="bg-gray-100 py-5 px-8 rounded-md prose">
           <h2>Pro</h2>
           <h4>$15/mo</h4>
           <p>Unlimited users + databases.<br/>Perfect for freelancers and entrepreneurs.</p>
           <span>Available Soon</span>
         </div>
       </div>
+    </div>
+
+    <div id="pricing" class=" mt-32">
+      <div class="prose mx-auto max-w-xl mb-10">
+        <h2>Getting Started</h2>
+        <p>Brian tweeted a complete step-by-step of how to implement OneClickDB. He said it better than I ever could, so...</p>
+      </div>
+      <div class="twitter-wrapper"><blockquote class="twitter-tweet tw-align-center"  data-conversation="none"><p lang="en" dir="ltr">Implementing <a href="https://twitter.com/MrPatGriffith?ref_src=twsrc%5Etfw">@MrPatGriffith</a> &#39;s OneClickDB idea with the help of <a href="https://twitter.com/panphora?ref_src=twsrc%5Etfw">@panphora</a> ( who&#39;s challenging us all to a hackathon )<br><br>Here are the steps in a thread:<br><br>🧵<br><br>1. - Sign up at <a href="https://t.co/2TWTsVJsjP">https://t.co/2TWTsVJsjP</a><br><br>👇</p>&mdash; Brian Ball (@brianball) <a href="https://twitter.com/brianball/status/1373724308212654081?ref_src=twsrc%5Etfw">March 21, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> </div>
+      <div class="text-center mt-5">
+        <a class="button text-blue-600 font-bold" href="https://twitter.com/brianball/status/1373724308212654081?ref_src=twsrc%5Etfw" target="_blank">View this thread --></a>      
+      </div>
+
     </div>
 
     <div class="prose mx-auto max-w-xl mt-32" id="roadmap">  
@@ -102,7 +120,7 @@
           <li><strong>Restricted client mode:</strong> Are you using OneClickDB as a CMS for a client? This feature let's you disable "structure mode" for clients, so they can update the content but not mess with the schema.</li>
           <li><strong>Versioning:</strong> A simple way to go back in time in case you break something :)</li>
           <li><strong>Templates:</strong> Export your database structure and share it with a friend. They can then install the exact same database with one click.</li>
-          <li><strong>API:</strong> some very simple endpoints to allow for two-way editing. Eg, your database can edit your website, and your website can edit your database.</li>
+          <li><strong>API:</strong> some very simple endpoints to allow for two-way editing. Eg, your database can edit your website, and your website can edit your database. This will open the door for a whoooollleeee bunch of new use cases.</li>
         </ul>
       </div>
     </div>  
@@ -115,8 +133,12 @@
     </div>
 
     <div class="text-center">
-      <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">✅ another item off the Todo list! I made my personal page dynamic using <a href="https://t.co/DY51sl0jLT">https://t.co/DY51sl0jLT</a> – a top contender for the OneClickDB Hackathon by <a href="https://twitter.com/MrPatGriffith?ref_src=twsrc%5Etfw">@MrPatGriffith</a>. Took about 2 minutes to add enough jQuery to make bits of my personal page dynamic. <a href="https://t.co/i8KPkHBqmF">pic.twitter.com/i8KPkHBqmF</a></p>&mdash; James Futhey 🔊 (@kidgdzilla) <a href="https://twitter.com/kidgdzilla/status/1373538524943720449?ref_src=twsrc%5Etfw">March 21, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-      <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I&#39;m building with Pat&#39;s OneClickDB Implementation.<br><br>Here&#39;s what I&#39;m up to:<br><br>1. Layout the data in the Developer view<br>2. Label my data in the Editor view<br>3. Create a basic HTML template<br>4. Use a basic JavaScript fetch<br>5. Use JavaScript to put the data values into the HTML.<br><br>EASY! <a href="https://t.co/mSpTki4KyY">https://t.co/mSpTki4KyY</a></p>&mdash; Brian Ball (@brianball) <a href="https://twitter.com/brianball/status/1373695521735331840?ref_src=twsrc%5Etfw">March 21, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+      <div class="twitter-wrapper"><blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">✅ another item off the Todo list! I made my personal page dynamic using <a href="https://t.co/DY51sl0jLT">https://t.co/DY51sl0jLT</a> – a top contender for the OneClickDB Hackathon by <a href="https://twitter.com/MrPatGriffith?ref_src=twsrc%5Etfw">@MrPatGriffith</a>. Took about 2 minutes to add enough jQuery to make bits of my personal page dynamic. <a href="https://t.co/i8KPkHBqmF">pic.twitter.com/i8KPkHBqmF</a></p>&mdash; James Futhey 🔊 (@kidgdzilla) <a href="https://twitter.com/kidgdzilla/status/1373538524943720449?ref_src=twsrc%5Etfw">March 21, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> </div>
+      <div class="twitter-wrapper"><blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I&#39;m building with Pat&#39;s OneClickDB Implementation.<br><br>Here&#39;s what I&#39;m up to:<br><br>1. Layout the data in the Developer view<br>2. Label my data in the Editor view<br>3. Create a basic HTML template<br>4. Use a basic JavaScript fetch<br>5. Use JavaScript to put the data values into the HTML.<br><br>EASY! <a href="https://t.co/mSpTki4KyY">https://t.co/mSpTki4KyY</a></p>&mdash; Brian Ball (@brianball) <a href="https://twitter.com/brianball/status/1373695521735331840?ref_src=twsrc%5Etfw">March 21, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> </div>
+    </div>
+
+    <div class="text-center">
+      <nuxt-link to="/auth/start" class="button text-blue-600 bg-amber-300 font-bold my-10 text-3xl inline-block" v-if="!$auth.loggedIn">sign up already</nuxt-link>
     </div>
 
     <div class="prose mx-auto max-w-xl mb-20 text-center">
@@ -191,7 +213,7 @@ export default {
           type: "string"
         },
         pricing_content: {
-          value: "Databases shouldn’t be complicated. And they shouldn’t be expensive either. OneClickDB is free forever for a single user with a single database. And pretty darn affordable if you wanna upgrade.\n\nWhy so cheap? The same reason it’s so fast. Caching!",
+          value: "OneClickDB is free forever for a single user with a single database. And pretty darn affordable if you wanna upgrade. But hurry hurry hurry if you wanna save some money, because the **Early Bird** plan is going away forever as soon as the **Pro** plan is ready (literally any day now).\n\nWhy so cheap? The same reason it’s so fast. Caching!",
           type: "text"
         },
         roadmap_title: {
