@@ -73,10 +73,28 @@ export const actions = {
         for (const [key, value] of Object.entries(storedJson)) {
 
             let schema = []
-            if(value.schema) {
-                for (const [key, value] of Object.entries(value.schema)) {
-                    //TODO
-                }
+            let dataArray = []
+            if(value.type == 'collection' && value.data) {
+                value.data.forEach(d => {
+                    let dArray = []
+                    let count = 0
+                    for (const [k, v] of Object.entries(d)) {
+                        if(count === 0) {
+                            //add this info to the schema
+                            schema.push({
+                                "key": k,
+                                "type": v.type
+                            })
+                            count = count + 1
+                        }
+                        dArray.push({
+                            "key": k,
+                            "type": v.type,
+                            "value": v.value ? v.value : "",
+                        })
+                    }
+                    dataArray.push(dArray)
+                })                                
             }
 
             objArray.push({
@@ -84,7 +102,7 @@ export const actions = {
                 "type": value.type,
                 "value": value.value ? value.value : "",
                 "schema": schema,
-                "data": value.data ? value.data : []
+                "data": dataArray
             })
         }
 
@@ -99,16 +117,33 @@ export const actions = {
         let json = new Object()
         context.state.pairs.forEach(element => {
             if(element.key.length) {
-                json[element.key] = {
-                    type: element.type,
-                    value: element.value
+                if(element.type == 'collection') {
+                    
+                    let collectionData = new Array()
+                    // element.data.forEach(d => {
+                    //     collectionData.push({
+                            
+                    //     })
+                    // })
+
+                    json[element.key] = {
+                        type: element.type,
+                        data: collectionData,
+                    }
+
+                } else {
+                    json[element.key] = {
+                        type: element.type,
+                        value: element.value
+                    }
                 }
             }
         })
-        await this.$axios.patch('/user/setDB', {
-            json: json
-        })
-        context.commit('UPDATE_INIT_PAIRS', JSON.parse(JSON.stringify(context.state.pairs)))
+        console.log(json)
+        // await this.$axios.patch('/user/setDB', {
+        //     json: json
+        // })
+        // context.commit('UPDATE_INIT_PAIRS', JSON.parse(JSON.stringify(context.state.pairs)))
     },
     async updateSchemaMode(context) {
         let val = !context.state.auth.user.schemaMode

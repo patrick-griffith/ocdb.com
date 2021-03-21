@@ -92,12 +92,12 @@ export default {
         revertJson() {
             if(confirm("Are you sure?")) {
                 this.$store.dispatch('revertPairs')                
-                this.$toast.success('Data reset!')
+                //this.$toast.success('Data reset!') //TODO
             }
         },
         async saveJson() {
             this.$store.dispatch('saveJson')            
-            this.$toast.success('Saved!')
+            //this.$toast.success('Saved!') //TODO
         },              
     },    
 }
