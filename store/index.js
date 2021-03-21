@@ -38,6 +38,10 @@ export const mutations = {
     UPDATE_COLLECTION_DATA(state, {index, val}) {
         state.pairs[index].data = val
     },
+    DELETE_COLLECTION_DATA(state, {index, l1}) {
+        //console.log(state.pairs[l1].data[index])
+        state.pairs[l1].data.splice(index, 1)
+    },
     ADD_NEW_PAIR(state, {newPair, l1}) {
         if(l1) {
             state.pairs[l1].schema.push(newPair)
@@ -75,17 +79,16 @@ export const actions = {
             let schema = []
             let dataArray = []
             if(value.type == 'collection' && value.data) {
+                let count = 0
                 value.data.forEach(d => {
-                    let dArray = []
-                    let count = 0
+                    let dArray = []                    
                     for (const [k, v] of Object.entries(d)) {
                         if(count === 0) {
                             //add this info to the schema
                             schema.push({
                                 "key": k,
                                 "type": v.type
-                            })
-                            count = count + 1
+                            })                            
                         }
                         dArray.push({
                             "key": k,
@@ -93,6 +96,7 @@ export const actions = {
                             "value": v.value ? v.value : "",
                         })
                     }
+                    count = count + 1
                     dataArray.push(dArray)
                 })                                
             }
@@ -120,11 +124,16 @@ export const actions = {
                 if(element.type == 'collection') {
                     
                     let collectionData = new Array()
-                    // element.data.forEach(d => {
-                    //     collectionData.push({
-                            
-                    //     })
-                    // })
+                    element.data.forEach(dataArray => {
+                        let cDataInner = new Object()
+                        dataArray.forEach(d => {
+                            cDataInner[d.key] = {
+                                type: d.type,
+                                value: d.value
+                            }
+                        })
+                        collectionData.push(cDataInner)
+                    })
 
                     json[element.key] = {
                         type: element.type,
@@ -139,11 +148,10 @@ export const actions = {
                 }
             }
         })
-        console.log(json)
-        // await this.$axios.patch('/user/setDB', {
-        //     json: json
-        // })
-        // context.commit('UPDATE_INIT_PAIRS', JSON.parse(JSON.stringify(context.state.pairs)))
+        await this.$axios.patch('/user/setDB', {
+            json: json
+        })
+        context.commit('UPDATE_INIT_PAIRS', JSON.parse(JSON.stringify(context.state.pairs)))
     },
     async updateSchemaMode(context) {
         let val = !context.state.auth.user.schemaMode
@@ -169,6 +177,9 @@ export const actions = {
     },
     async updateCollectionData(context, {index, val}) {
         context.commit('UPDATE_COLLECTION_DATA', {index, val})
+    },
+    async deleteCollectionData(context, { index, l1 }) {
+        context.commit('DELETE_COLLECTION_DATA', { index, l1 })
     },
     addPair(context, {newPair, l1}) {
         context.commit('ADD_NEW_PAIR', {newPair, l1})

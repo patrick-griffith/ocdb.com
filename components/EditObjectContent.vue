@@ -7,8 +7,8 @@
                 </div>
                 <div>
                     <div v-if="pair.type == 'collection'" class="bg-gray-900 p-5 -mx-2 rounded-sm mb-5">
-                        <template v-for="(d) in pair.data">
-                            <edit-object-row :d="d" :key="d.key" :level1index="index" @update="changeCollectionData"/>
+                        <template v-for="(d, i) in pair.data">
+                            <edit-object-row :d="d" :key="d.key" :level1index="index" @update="changeCollectionData(index)" @delete="deleteCollectionData(index, i)" />
                         </template>
                         <span class="inline-block mt-5 cursor-pointer underline text-white hover:bg-blue-800" @click="addRow(index)">
                             + Add
@@ -37,6 +37,12 @@ export default {
         changeCollectionData(index) {
             let val = JSON.parse(JSON.stringify(this.pairs[index].data))
             this.$store.dispatch('updateCollectionData', {index, val})
+        },
+        deleteCollectionData(index, i) {
+            let l1 = index
+            index = i
+            this.pairs[l1].data.splice(index, 1)
+            this.$store.dispatch('deleteCollectionData', {index, l1})
         },
         addRow(l1) {
             

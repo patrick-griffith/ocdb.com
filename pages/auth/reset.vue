@@ -33,12 +33,6 @@
     </div>
 </template>
 <script>
-/* 
-    TODO
-    Fix user error in usercontroller
-    Display a pretty "processcing" overlay or something so it doesn't look like it's just doing nothing.
-    Figure out what that didn't just throw a frontend error
-*/
 
 import EmailAuthCode from '~/components/EmailAuthCode.vue'
 export default {
