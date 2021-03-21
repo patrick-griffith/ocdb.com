@@ -101,27 +101,18 @@ export const actions = {
         let objArray = []
         for (const [key, value] of Object.entries(storedJson)) {
 
-            let schema = []
+            let schema = value.schema ? value.schema : []
             let dataArray = []
             if(value.type == 'collection' && value.data) {
-                let count = 0
                 value.data.forEach(d => {
                     let dArray = []                    
                     for (const [k, v] of Object.entries(d)) {
-                        if(count === 0) {
-                            //add this info to the schema
-                            schema.push({
-                                "key": k,
-                                "type": v.type
-                            })                            
-                        }
                         dArray.push({
                             "key": k,
                             "type": v.type,
                             "value": v.value ? v.value : "",
                         })
                     }
-                    count = count + 1
                     dataArray.push(dArray)
                 })                                
             }
@@ -163,6 +154,7 @@ export const actions = {
                     json[element.key] = {
                         type: element.type,
                         data: collectionData,
+                        schema: element.schema
                     }
 
                 } else {
