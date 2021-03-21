@@ -16,7 +16,7 @@
                     <edit-object-content :passedPairs="pairs" :level="1" />                                
                 </div>                
 
-                <div class="prose mt-20" v-if="true">
+                <div class="prose mt-20" v-if="false">
                     <code>
                         <pre>{{ pairs }}</pre>
                     </code>
