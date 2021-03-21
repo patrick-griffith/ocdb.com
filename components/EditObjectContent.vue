@@ -6,13 +6,15 @@
                     <h4>{{ pair.key }}</h4>
                 </div>
                 <div>
-                    <div v-if="pair.type == 'collection'" class="bg-gray-900 p-5 -mx-2 rounded-sm mb-5">
+                    <div v-if="pair.type == 'collection'">
                         <template v-for="(d, i) in pair.data">
                             <edit-object-row :d="d" :key="d.id" :level1index="index" @update="changeCollectionData(index)" @delete="deleteCollectionData(index, i)" />
                         </template>
-                        <span class="inline-block mt-5 cursor-pointer underline text-white hover:bg-blue-800" @click="addRow(index)">
-                            + Add
-                        </span>                    
+                        <span class="inline-block">
+                            <span class="bg-gray-600 text-sm h-10 px-4 text-white font-medium rounded-md mb-2 flex items-center hover:bg-gray-800 cursor-pointer" @click="addRow(index)">
+                                + new row
+                            </span>              
+                        </span>
                     </div>
                     <textarea v-else-if="pair.type == 'text'" class="input w-full" v-model="pair.value" @input="changeValue(index)"></textarea>                            
                     <input v-else type="text" class="input w-full" v-model="pair.value" @input="changeValue(index)" />

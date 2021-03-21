@@ -5,16 +5,18 @@
 
         <div class="container">
 
-            <div class="mt-10 mx-auto max-w-2xl mb-20">                
+            <div class="mt-10 mx-auto max-w-3xl mb-20">                
                 
                 <the-database-nav />
                 
-                <div v-if="schemaMode">
+                
+                <div v-if="schemaMode" class="bg-gray-900 p-8 rounded-md">
                     <edit-object-schema :passedPairs="pairs" :level="1" />
                 </div>
-                <div v-else>
+                <div v-else class="bg-blue-50 p-4 md:p-8 rounded-md">
                     <edit-object-content :passedPairs="pairs" :level="1" />                                
                 </div>                
+                
 
                 <div class="prose mt-20" v-if="false">
                     <code>
@@ -35,7 +37,7 @@ export default {
         return {      
             title: 'One Click DB',
             htmlAttrs: {
-                class: 'bg-blue-50'
+                class: 'bg-blue-100'
             }
         };
     },

@@ -7,6 +7,8 @@ import 'vue-awesome/icons/long-arrow-alt-left'
 import 'vue-awesome/icons/plus'
 import 'vue-awesome/icons/trash'
 
+import 'vue-awesome/icons/bars'
+
 import 'vue-awesome/icons/chevron-circle-down'
 import 'vue-awesome/icons/chevron-circle-up'
 
