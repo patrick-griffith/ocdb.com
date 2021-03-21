@@ -62,9 +62,9 @@ export default {
             this.$store.dispatch('updateKey', {index, val, l, l1})
         },
         async addNewPair() {
-            var newPair = {}
+            var np = {}
             if(this.level == 1) {
-                newPair = {
+                np = {
                     key: '',
                     type: 'string',
                     value: '',
@@ -72,13 +72,15 @@ export default {
                     data: []
                 }
             } else {
-                newPair = {
+                np = {
                     key: '',
                     type: 'string',
                 }
             }
-            this.pairs.push(newPair)
+            this.pairs.push(np)
+
             let l1 = this.level1index
+            let newPair = JSON.parse(JSON.stringify(np))
 
             this.$store.dispatch('addPair', {newPair, l1 })
         },
