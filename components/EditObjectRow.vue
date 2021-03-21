@@ -12,7 +12,7 @@
             <div class="fixed inset-0 flex items-center justify-center z-10" >                
                 <div class="bg-gray-900 p-5 max-w-xl w-full">                    
                     <div v-for="(r, count) in d" :key="count">
-                        <div class="mb-5">
+                        <div class="mb-5"  v-if="r.key">
                             <h4 class="pl-3 text-gray-200 font-bold mb-2 inline-block">{{ r.key }}</h4>
                             <textarea v-if="r.type == 'text'" class="input w-full" v-model="r.value"></textarea>                            
                             <input v-else type="text" class="input w-full" v-model="r.value"/>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <template v-for="(pair, index) in pairs">
-            <div :key="pair.id" class="mb-5" v-if="pair.type != 'collection' || pair.schema.length">
+            <div :key="pair.id" class="mb-5" v-if="pair.key && (pair.type != 'collection' || pair.schema.length)">
                 <div class="prose pl-3 mb-1">
                     <h4>{{ pair.key }}</h4>
                 </div>
