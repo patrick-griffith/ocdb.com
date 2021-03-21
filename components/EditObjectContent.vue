@@ -14,8 +14,8 @@
                             + Add
                         </span>                    
                     </div>
-                    <textarea v-else-if="pair.type == 'text'" class="input w-full" v-model="pair.value"></textarea>                            
-                    <input v-else type="text" class="input w-full" v-model="pair.value" />
+                    <textarea v-else-if="pair.type == 'text'" class="input w-full" v-model="pair.value" @input="changeValue(index)"></textarea>                            
+                    <input v-else type="text" class="input w-full" v-model="pair.value" @input="changeValue(index)" />
                 </div>
             </div>
         </template>
@@ -26,12 +26,30 @@ export default {
     props: ['passedPairs', 'level'],
     data() {
         return {
-            pairs: this.passedPairs
+            pairs: this.passedPairs ? JSON.parse(JSON.stringify(this.passedPairs)) : []
         }
     },
     methods: {
+        changeValue(index) {
+            let val = this.pairs[index].value
+            let l = 1
+            this.$store.dispatch('updateValue', {index, val, l})
+        },
         addRow(l1) {
-            this.$store.dispatch('addContentRow', l1)
+            
+            let row = []
+
+            this.$store.state.pairs[l1].schema.forEach(e => {
+                row.push( {
+                    "key": e.key,
+                    "type": e.type,
+                    "value": ""
+                })
+            })
+
+            this.pairs[l1].data.push(row)
+            let val = JSON.parse(JSON.stringify(row))
+            this.$store.dispatch('addContentRow', {l1, val})
         }
     }
 }
