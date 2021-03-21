@@ -16,7 +16,7 @@
 
     <div class="prose mx-auto max-w-xl text-center">
       
-      <h1>Still thinking about an h1 .</h1>      
+      <h1>The fastest database... ever?</h1>      
       <p>One Click DB is the fastest way to add dynamic data to your website.<br class="hidden lg:block"/>Or your client's website. Don’t believe me? <nuxt-link to="/auth/start" class='button'>Try it for yourself.</nuxt-link></p>      
       
        <div class="text-center mt-12">
@@ -41,15 +41,25 @@
     </section>
 
 
-    <div class="prose mx-auto max-w-xl mt-20" id="why">  
-      <h2 v-html="content.why_title.value"></h2>
+    <div class="prose mx-auto max-w-xl mt-20" id="developers">  
+      <h2>Fast for Developers</h2>
+      <div v-html="$md.render(content.why_content.value )"></div>
+    </div>
+
+    <div class="prose mx-auto max-w-xl mt-20" id="editors">  
+      <h2>Fast for Editors</h2>
+      <div v-html="$md.render(content.why_content.value )"></div>
+    </div>
+
+    <div class="prose mx-auto max-w-xl mt-20" id="visitors">  
+      <h2>Fast for Visitors</h2>
       <div v-html="$md.render(content.why_content.value )"></div>
     </div>
     
     
     <div id="pricing" class=" mt-20">
       <div class="prose mx-auto max-w-xl mb-10">
-        <h2 v-html="content.pricing_title.value"></h2>
+        <h2>Fast... get your wallet!</h2>
         <div v-html="$md.render(content.pricing_content.value )"></div>        
       </div>
       <div class="grid md:grid-cols-3 gap-5 mx-auto">
@@ -62,7 +72,7 @@
         <div class="bg-blue-100 p-5 prose">
           <h2>Early Bird</h2>
           <h4>$75 once</h4>
-          <p>Lifetime access to the Pro plan.</p>
+          <p>Lifetime access to the Pro plan. This plan won’t last long!</p>
           <nuxt-link to="/auth/start" class="button">Sign Up Now</nuxt-link>
         </div>
         <div class="bg-gray-100 p-5 prose">
