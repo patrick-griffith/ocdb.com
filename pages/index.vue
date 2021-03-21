@@ -3,7 +3,7 @@
     <div class="my-10 mx-auto max-w-lg text-center">      
       <div>
         <nuxt-link to="/">
-          <img src="/img/logo.png" alt="One Click DB logo" width="50" class="inline" />
+          <img src="/img/logo.png" alt="OneClickDB logo" width="50" class="inline" />
         </nuxt-link>
       </div>
       
@@ -17,7 +17,7 @@
     <div class="prose mx-auto max-w-xl text-center">
       
       <h1>The fastest database... ever?</h1>      
-      <p>One Click DB is the fastest way to add dynamic data to your website.<br class="hidden lg:block"/>Or your client's website. Don’t believe me? <nuxt-link to="/auth/start" class='button'>Try it for yourself.</nuxt-link></p>      
+      <p>OneClickDB is the fastest way to add dynamic data to your website.<br class="hidden lg:block"/>Or your client's website. Don’t believe me? <nuxt-link to="/auth/start" class='button'>Try it for yourself.</nuxt-link></p>      
       
        <div class="text-center mt-12">
         <p><nuxt-link to="/#developers">Fast for <strong>Developers</strong></nuxt-link></p>
@@ -41,23 +41,26 @@
     </section>
 
 
-    <div class="prose mx-auto max-w-xl mt-20" id="developers">  
+    <div class="prose mx-auto max-w-xl mt-32" id="developers">  
       <h2>Fast for Developers</h2>
       <div v-html="$md.render(content.why_content.value )"></div>
     </div>
 
-    <div class="prose mx-auto max-w-xl mt-20" id="editors">  
+    <div class="prose mx-auto max-w-xl mt-32" id="editors">  
       <h2>Fast for Editors</h2>
       <div v-html="$md.render(content.why_content.value )"></div>
     </div>
 
-    <div class="prose mx-auto max-w-xl mt-20" id="visitors">  
+    <div class="prose mx-auto max-w-xl mt-32" id="visitors">  
       <h2>Fast for Visitors</h2>
-      <div v-html="$md.render(content.why_content.value )"></div>
+      <div>        
+        <p>Content Management Systems are slow. But OneClickDB is fast, with an average response time of <code>0.052 seconds</code>.</p>
+        <p>Speed <a href="https://www.nngroup.com/articles/website-response-times/" target="_blank">is critical</a> for a good user experience. So which should you choose?</p>
+      </div>
     </div>
     
     
-    <div id="pricing" class=" mt-20">
+    <div id="pricing" class=" mt-32">
       <div class="prose mx-auto max-w-xl mb-10">
         <h2>Fast... get your wallet!</h2>
         <div v-html="$md.render(content.pricing_content.value )"></div>        
@@ -86,20 +89,33 @@
       </div>
     </div>
 
-    <div class="prose mx-auto max-w-xl mt-20" id="roadmap">  
-      <h2 v-html="content.roadmap_title.value"></h2>
-      <div v-html="$md.render(content.roadmap_content.value )"></div>
+    <div class="prose mx-auto max-w-xl mt-32" id="roadmap">  
+      <h2>Roadmap</h2>
+      <div>
+        <p>OneClickDB was built during <a href="https://twitter.com/panphora/status/1372575280049631238" target="_blank">a hackathon</a> in March 2021. It’s already super useful for a lot of use cases, and I’m actively working on making it even more so (without compromising the absurd simplicity).</p>
+        <p>Here is some of what’s in store for the next month.</p>
+        <ul>
+          <li><strong>A bunch of small stuff</strong> like autosave notifications, form error handlers, autofocus, etc.</li>
+          <li><strong>Images:</strong> adding an image content type that let's editors easily upload or paste an image, then stores the file and returns the url in the response.          
+          <li><strong>Multi-DB:</strong> <em>Pro</em> users will be able to manage unlimited databases from one account.</li>
+          <li><strong>Collaboration:</strong> <em>Pro</em> users will be able to add unlimited collaborators to their</li>
+          <li><strong>Restricted client mode:</strong> Are you using OneClickDB as a CMS for a client? This feature let's you disable "structure mode" for clients, so they can update the content but not mess with the schema.</li>
+          <li><strong>Versioning:</strong> A simple way to go back in time in case you break something :)</li>
+          <li><strong>Templates:</strong> Export your database structure and share it with a friend. They can then install the exact same database with one click.</li>
+          <li><strong>API:</strong> some very simple endpoints to allow for two-way editing. Eg, your database can edit your website, and your website can edit your database.</li>
+        </ul>
+      </div>
     </div>  
 
-    <div class="prose mx-auto max-w-xl mt-20 mb-20">
+    <div class="prose mx-auto max-w-xl mt-32 mb-32">
       <h2>Questions</h2>
       <p>Questions? Concerns? Feedback?</p> 
-      <p><a href="mailto:mister@patgriffith.com">Email me</a> and I’d be happy to bend over backwards as far as I humanly can. Seriously. This is my project, you are my customer, and there’s literally no way I’d rather use my time than talking to you. Because <em>you</em> are the key to making One Click DB a success.</p>
+      <p><a href="mailto:mister@patgriffith.com">Email me</a> and I’d be happy to bend over backwards as far as I humanly can. Seriously. This is my project, you are my customer, and there’s literally no way I’d rather spend my time than talking to you. Because <em>you</em> are the key to making OneClickDB a success.</p>
       <p>And if you’re on the fence... check out how real humans are using OCDB:</p>
     </div>
 
     <div class="text-center">
-      <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">✅ another item off the Todo list! I made my personal page dynamic using <a href="https://t.co/DY51sl0jLT">https://t.co/DY51sl0jLT</a> – a top contender for the One Click DB Hackathon by <a href="https://twitter.com/MrPatGriffith?ref_src=twsrc%5Etfw">@MrPatGriffith</a>. Took about 2 minutes to add enough jQuery to make bits of my personal page dynamic. <a href="https://t.co/i8KPkHBqmF">pic.twitter.com/i8KPkHBqmF</a></p>&mdash; James Futhey 🔊 (@kidgdzilla) <a href="https://twitter.com/kidgdzilla/status/1373538524943720449?ref_src=twsrc%5Etfw">March 21, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+      <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">✅ another item off the Todo list! I made my personal page dynamic using <a href="https://t.co/DY51sl0jLT">https://t.co/DY51sl0jLT</a> – a top contender for the OneClickDB Hackathon by <a href="https://twitter.com/MrPatGriffith?ref_src=twsrc%5Etfw">@MrPatGriffith</a>. Took about 2 minutes to add enough jQuery to make bits of my personal page dynamic. <a href="https://t.co/i8KPkHBqmF">pic.twitter.com/i8KPkHBqmF</a></p>&mdash; James Futhey 🔊 (@kidgdzilla) <a href="https://twitter.com/kidgdzilla/status/1373538524943720449?ref_src=twsrc%5Etfw">March 21, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
       <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">I&#39;m building with Pat&#39;s OneClickDB Implementation.<br><br>Here&#39;s what I&#39;m up to:<br><br>1. Layout the data in the Developer view<br>2. Label my data in the Editor view<br>3. Create a basic HTML template<br>4. Use a basic JavaScript fetch<br>5. Use JavaScript to put the data values into the HTML.<br><br>EASY! <a href="https://t.co/mSpTki4KyY">https://t.co/mSpTki4KyY</a></p>&mdash; Brian Ball (@brianball) <a href="https://twitter.com/brianball/status/1373695521735331840?ref_src=twsrc%5Etfw">March 21, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
     </div>
 
@@ -151,7 +167,7 @@ export default {
           type: "string"
         },
         h2: {
-          value: "One Click DB is the fastest way to add dynamic data to your website.<br/>Or your client's website. Don’t believe me? <a href='' class='button'>Try it for yourself.</a>",
+          value: "OneClickDB is the fastest way to add dynamic data to your website.<br/>Or your client's website. Don’t believe me? <a href='' class='button'>Try it for yourself.</a>",
           type: "string"
         },
         caption: {
@@ -159,7 +175,7 @@ export default {
           type: "string"
         },
         why_title: {
-          value: "Why choose One Click DB?",
+          value: "Why choose OneClickDB?",
           type: "string"
         },
          why_content: {
@@ -175,7 +191,7 @@ export default {
           type: "string"
         },
         pricing_content: {
-          value: "Databases shouldn’t be complicated. And they shouldn’t be expensive either. One Click DB is free forever for a single user with a single database. And pretty darn affordable if you wanna upgrade.\n\nWhy so cheap? The same reason it’s so fast. Caching!",
+          value: "Databases shouldn’t be complicated. And they shouldn’t be expensive either. OneClickDB is free forever for a single user with a single database. And pretty darn affordable if you wanna upgrade.\n\nWhy so cheap? The same reason it’s so fast. Caching!",
           type: "text"
         },
         roadmap_title: {
@@ -208,16 +224,6 @@ export default {
   }
   h4 {
     @apply text-rose-600;
-  }
-}
-#roadmap {
-  ul {
-    li {
-      @apply pl-0;
-      &:before {
-        display: none
-      }
-    }
   }
 }
 .caption {

@@ -35,7 +35,7 @@ export default {
     middleware: ['auth', 'emailConfirmed'],    
     head() {
         return {      
-            title: 'One Click DB',
+            title: 'OneClickDB',
             htmlAttrs: {
                 class: 'bg-blue-100'
             }

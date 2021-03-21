@@ -19,7 +19,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'One Click DB',
+    title: 'OneClickDB',
     htmlAttrs: {
       lang: 'en'
     },

@@ -34,6 +34,14 @@ input {
         @apply bg-blue-200;
     }
 }
+.prose {
+    line-height: 1.44em;
+    a {
+        &:hover {
+            @apply bg-blue-200;
+        }
+    }
+}
 
 
 .button {
