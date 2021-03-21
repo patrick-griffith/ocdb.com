@@ -20,11 +20,31 @@ export const mutations = {
     UPDATE_SCHEMA_MODE(state, value) {
         state.auth.user.schemaMode = value
     },
-    UPDATE_PAIR_KEY(state, {index, val}) {
+    UPDATE_KEY(state, {index, val}) {
         state.pairs[index].key = val
     },
-    UPDATE_PAIR_TYPE(state, {index, val}) {
+    UPDATE_SCHEMA_KEY(state, {index, val, l1}) {
+        state.pairs[l1].schema[index].key = val
+    },
+    UPDATE_TYPE(state, {index, val}) {
         state.pairs[index].type = val
+    },
+    UPDATE_SCHEMA_TYPE(state, {index, val, l1}) {
+        state.pairs[l1].schema[index].type = val
+    },
+    ADD_NEW_PAIR(state, {newPair, l1}) {
+        if(l1) {
+            state.pairs[l1].schema.push(newPair)
+        } else {
+            state.pairs.push(newPair)
+        }
+    },
+    REMOVE_PAIR(state, {l1, index}) {
+        if(l1) {
+            state.pairs[l1].schema.splice(index, 1)
+        } else {
+            state.pairs.splice(index, 1)
+        }
     }
 }
 
@@ -42,10 +62,20 @@ export const actions = {
         let storedJson = JSON.parse(this.$auth.user.json)
         let objArray = []
         for (const [key, value] of Object.entries(storedJson)) {
+
+            let schema = []
+            if(value.schema) {
+                for (const [key, value] of Object.entries(value.schema)) {
+                    //TODO
+                }
+            }
+
             objArray.push({
                 "key": key,
                 "type": value.type,
-                "value": value.value
+                "value": value.value ? value.value : "",
+                "schema": schema,
+                "data": value.data ? value.data : []
             })
         }
 
@@ -76,11 +106,29 @@ export const actions = {
         context.commit('UPDATE_SCHEMA_MODE', val)
         this.$axios.patch('/user/setSchemaMode/' + (val ? '1' : '0'))
     },
-    async updatePairKey(context, {index, val}) {
-        context.commit('UPDATE_PAIR_KEY', {index, val})
+    async updateKey(context, {index, val, l, l1}) {
+        if(l == 1) {
+            context.commit('UPDATE_KEY', {index, val})
+        } else {
+            //this means that we're editing a key within a collection.
+            //this means that we're actually going to be editing the schema
+            context.commit('UPDATE_SCHEMA_KEY', {index, val, l1})
+        }
     },
-    async updatePairType(context, {index, val}) {
-        context.commit('UPDATE_PAIR_TYPE', {index, val})
+    async updateType(context, {index, val, l, l1}) {
+        if(l == 1) {
+            context.commit('UPDATE_TYPE', {index, val})
+        } else {
+            //this means that we're editing a key within a collection.
+            //this means that we're actually going to be editing the schema
+            context.commit('UPDATE_SCHEMA_TYPE', {index, val, l1})
+        }
+    },
+    addPair(context, {newPair, l1}) {
+        context.commit('ADD_NEW_PAIR', {newPair, l1})
+    },
+    removePair(context, {index, l1}) {
+        context.commit('REMOVE_PAIR', {index, l1})
     }
 
 }

@@ -16,10 +16,17 @@
                     <edit-object-content :passedPairs="pairs" :level="1" />                                
                 </div>
 
-                <div v-if="dataChanged">
+                <div v-if="dataChanged" class="text-right">
                     <span class="button text-lg" @click="saveJson">Save Changes</span>
                     <span class="button text-lg ml-5" @click="revertJson">Discard Changes</span>
                 </div>
+
+                <div class="prose mt-20">
+                    <code>
+                        <pre>{{ pairs }}</pre>
+                    </code>
+                </div>
+                
             </div>
         </div>
 

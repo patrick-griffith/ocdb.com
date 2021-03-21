@@ -8,8 +8,8 @@
                 <h3>Type</h3>
             </div>
         </div>
-        <div v-for="(pair, index) in pairs" :key="index">
-            <div :class="[pair.type == 'collection' ? 'bg-gray-900 p-2 -mx-2 rounded-sm' : '']">
+        <div v-for="(pair, index) in pairs" :key="'level-' + level + '-' + index">
+            <div :class="[pair.type == 'collection' ? 'bg-gray-900 p-2 -mx-2 rounded-sm mb-5' : '']">
                 <div class="grid grid-cols-12 gap-5 mb-5 items-center">
                     <div class="col-span-6"><input type="text" class="input w-full" v-model="pair.key" @input="changeKey(index)" /></div>
                     <div class="col-span-5">
@@ -51,22 +51,42 @@ export default {
     methods: {
         changeType(index) {
             let val = this.pairs[index].type
-            this.$store.dispatch('updatePairType', {index, val})
+            let l = this.level
+            let l1 = this.level1index
+            this.$store.dispatch('updateType', {index, val, l, l1})
         },
         changeKey(index) {
             let val = this.pairs[index].key
-            this.$store.dispatch('updatePairKey', {index, val})
+            let l = this.level
+            let l1 = this.level1index
+            this.$store.dispatch('updateKey', {index, val, l, l1})
         },
         async addNewPair() {
-            this.pairs.push({
-                key: '',
-                type: 'string',
-                value: '',
-            })
-            this.$emit('updatePairs', this.pairs)
+            var newPair = {}
+            if(this.level == 1) {
+                newPair = {
+                    key: '',
+                    type: 'string',
+                    value: '',
+                    schema: [],
+                    data: []
+                }
+            } else {
+                newPair = {
+                    key: '',
+                    type: 'string',
+                }
+            }
+            this.pairs.push(newPair)
+            let l1 = this.level1index
+
+            this.$store.dispatch('addPair', {newPair, l1 })
         },
         remove(index) {
+            let l1 = this.level1index
+
             this.pairs.splice(index, 1)
+            this.$store.dispatch('removePair', {index, l1 })
         },
         async updatePairs(value) {
             console.log('trying to update pairs')
