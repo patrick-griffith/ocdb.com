@@ -31,7 +31,7 @@
                     <button class="button" native-type="submit"><span class="load"></span>Create Account --></button>
                 </div>
 
-                <p class="mt-10 ml-2 article">
+                <p class="mt-10 ml-2 prose">
                     Already have an account? <nuxt-link to="/auth/login">Login</nuxt-link>
                 </p>
             </div>

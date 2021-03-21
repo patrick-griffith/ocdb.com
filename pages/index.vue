@@ -10,7 +10,7 @@
       <div class="text-blueGray-600 bg-blue-100 inline-block  py-2 px-5 rounded-md mt-5">
                
         <nuxt-link to="/home" class="text-blue-600 font-bold hover:underline">login</nuxt-link>
-        <nuxt-link to="/auth/start" class="text-blue-600 bg-amber-300 font-bold ml-5 hover:underline">sign up for free</nuxt-link>
+        <nuxt-link to="/auth/start" class="button text-blue-600 bg-amber-300 font-bold ml-5" v-if="!$auth.loggedIn">sign up for free</nuxt-link>
       </div>
     </div>    
 
@@ -67,13 +67,15 @@
           <h2 class="mb-0">Solo</h2>
           <h4>FREE</h4>
           <p>1 user. 1 database.<br/>Perfect for your personal website.</p>
-          <nuxt-link to="/auth/start" class="button">Sign Up Now</nuxt-link>
+          <nuxt-link to="/auth/start" class="text-blue-600 font-bold button"  v-if="!$auth.loggedIn">Sign Up Now</nuxt-link>
         </div>
         <div class="bg-blue-100 p-5 prose">
           <h2>Early Bird</h2>
           <h4>$75 once</h4>
           <p>Lifetime access to the Pro plan. This plan won’t last long!</p>
-          <nuxt-link to="/auth/start" class="button">Sign Up Now</nuxt-link>
+          <nuxt-link to="/auth/start" class="text-blue-600 font-bold button" v-if="!$auth.loggedIn">Sign Up Now</nuxt-link>
+          <upgrade v-else />
+          
         </div>
         <div class="bg-gray-100 p-5 prose">
           <h2>Pro</h2>

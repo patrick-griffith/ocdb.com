@@ -3,7 +3,7 @@
         <div class="md:flex items-center w-full">
             <label for="toogleA" class="flex items-center justify-center md:justify-start cursor-pointer mb-8 md:mb-0">
                 <div class="mr-3 text-gray-700 font-medium transition duration-200 ease-in-out" :class="[schemaMode ? 'opacity-25' : '']">
-                    Editor
+                    Content
                 </div>
                 <div class="relative">                
                     <input id="toogleA" type="checkbox" class="hidden" v-bind:checked="schemaMode" v-on:change="toggleSchemaMode" />
@@ -11,7 +11,7 @@
                     <div class="toggle__dot transition duration-200 ease-in-out absolute w-6 h-6 bg-blue-700 rounded-full shadow inset-y-0 left-0"></div>
                 </div>                
                 <div class="ml-3 text-gray-700 font-medium transition duration-200 ease-in-out" :class="[!schemaMode ? 'opacity-25' : '']">
-                    Developer
+                    Structure
                 </div>
             </label>            
             <div class="text-center md:text-right flex-grow relative">

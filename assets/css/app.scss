@@ -28,6 +28,12 @@ input {
   }
 
 
+.link {
+    @apply underline cursor-pointer;
+    &:hover {
+        @apply bg-blue-200;
+    }
+}
 
 
 .button {
