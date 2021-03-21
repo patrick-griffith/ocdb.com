@@ -49,7 +49,10 @@ export default {
     methods: {
         toggleSchemaMode(){
             this.$store.dispatch('updateSchemaMode')
-        }
+        },
+        async logout() {
+            await this.$auth.logout();
+        }    
     }
 }
 </script>
