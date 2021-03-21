@@ -1,5 +1,5 @@
 <template>
-  <div class="container">    
+  <div class="container">
     <div class="my-10 mx-auto max-w-lg text-center">      
       <div>
         <nuxt-link to="/">
@@ -7,35 +7,45 @@
         </nuxt-link>
       </div>
       
-      <div class="text-gray-600 bg-blue-100 inline-block  py-2 px-5 rounded-md mt-5">
-        <nuxt-link to="/#why" class="hover:underline">why?</nuxt-link>
-        <nuxt-link to="/#pricing" class="ml-5 hover:underline">pricing</nuxt-link>        
-        <nuxt-link to="/home" class="text-blue-600 font-bold ml-5 hover:underline">login</nuxt-link>
+      <div class="text-blueGray-600 bg-blue-100 inline-block  py-2 px-5 rounded-md mt-5">
+               
+        <nuxt-link to="/home" class="text-blue-600 font-bold hover:underline">login</nuxt-link>
+        <nuxt-link to="/auth/start" class="text-blue-600 bg-amber-300 font-bold ml-5 hover:underline">sign up for free</nuxt-link>
       </div>
-    </div>
+    </div>    
 
     <div class="prose mx-auto max-w-xl text-center">
       
-      <h1 v-html="content.h1.value"></h1>      
-      <p v-html="content.h2.value"> </p>
-      <nuxt-link to="/auth/start" class="button" v-html="content.button_text.value"></nuxt-link>
+      <h1>Still thinking about an h1 .</h1>      
+      <p>One Click DB is the fastest way to add dynamic data to your website.<br class="hidden lg:block"/>Or your client's website. Don’t believe me? <nuxt-link to="/auth/start" class='button'>Try it for yourself.</nuxt-link></p>      
       
+       <div class="text-center mt-12">
+        <p><nuxt-link to="/#developers">Fast for <strong>Developers</strong></nuxt-link></p>
+        <p><nuxt-link to="/#editors">Fast for <strong>Editors</strong></nuxt-link></p>
+        <p><nuxt-link to="/#visitors">Fast for <strong>Visitors</strong></nuxt-link></p>
+      </div>
+
     </div>
 
-
-    <div class="mt-20 relative max-w-4xl mx-auto">
-        <img src="https://picsum.photos/1200/600" width="1200" height="600" alt="" class="rounded" />
-    </div>        
-    <!-- <h2 class="caption">Collaborate with coworkers, clients, and alpha testers named Susan.</h2> -->
-    <div class="caption text-center">
-      <div v-html="content.caption.value"></div>
-    </div>
+    <section class="mx-auto mt-20 max-w-3xl border-2 rounded-lg border-black h-full bg-white">
+        <div class="px-5 pt-3 pb-2 leading-none border-b-2 border-black">
+            <span class="h-5 w-5 inline-block rounded-full bg-rose-600"></span>
+            <span class="h-5 w-5 inline-block rounded-full bg-amber-400 ml-2"></span>
+            <span class="h-5 w-5 inline-block rounded-full bg-lime-600 ml-2"></span>
+        </div>
+        <div>
+          <video width="100%" autoplay loop muted class="mx-auto">
+            <source src="/demo.mp4" type="video/mp4">
+          </video> 
+        </div>
+    </section>
 
 
     <div class="prose mx-auto max-w-xl mt-20" id="why">  
-      <h2  v-html="content.why_title.value"></h2>
+      <h2 v-html="content.why_title.value"></h2>
       <div v-html="$md.render(content.why_content.value )"></div>
     </div>
+    
     
     <div id="pricing" class=" mt-20">
       <div class="prose mx-auto max-w-xl mb-10">
@@ -73,12 +83,20 @@
       <h2>Questions</h2>
       <p>Questions? Concerns? Feedback?</p> 
       <p><a href="mailto:mister@patgriffith.com">Email me</a> and I’d be happy to bend over backwards as far as I humanly can. Seriously. This is my project, you are my customer, and there’s literally no way I’d rather use my time than talking to you. Because <em>you</em> are the key to making One Click DB a success.</p>
+      <p>And if you’re on the fence... check out how real humans are using OCDB:</p>
+    </div>
+
+    <div class="text-center">
+      <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">✅ another item off the Todo list! I made my personal page dynamic using <a href="https://t.co/DY51sl0jLT">https://t.co/DY51sl0jLT</a> – a top contender for the One Click DB Hackathon by <a href="https://twitter.com/MrPatGriffith?ref_src=twsrc%5Etfw">@MrPatGriffith</a>. Took about 2 minutes to add enough jQuery to make bits of my personal page dynamic. <a href="https://t.co/i8KPkHBqmF">pic.twitter.com/i8KPkHBqmF</a></p>&mdash; James Futhey 🔊 (@kidgdzilla) <a href="https://twitter.com/kidgdzilla/status/1373538524943720449?ref_src=twsrc%5Etfw">March 21, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+    </div>
+
+    <div class="prose mx-auto max-w-xl mb-20 text-center">
       <p>&nbsp;</p>
-      <p><span class="text-gray-500">&copy; 2021 Nobody</span></p>
+      <p><span class="text-gray-500">Built by <a href="https://patgriffith.com" target="_blank">Pat Griffith</a></span></p>
     </div>  
 
 
-    <div class="fixed right-0 bottom-0  mr-10 bg-gray-200 hidden lg:block" style="width: 500px;" :class="[exampleVisible ? 'top-0 mt-20' : '']">
+    <div class="fixed right-0 bottom-0  mr-10 bg-gray-200 hidden lg:block" style="width: 500px;" :class="[exampleVisible ? 'top-0 mt-20' : '']" v-if="false">
       <div class="bg-gray-900 py-3 px-5">
         <span class="text-gray-300 flex items-center cursor-pointer hover:text-white" @click="exampleVisible = !exampleVisible">
           <span>
@@ -116,15 +134,11 @@ export default {
       exampleJsonVisible: false,
       content: {
         h1: {
-          value: "Add a CMS to your website faster than you can spell WordPress.",
+          value: "The fastest way to create, edit, and deploy a database.",
           type: "string"
         },
         h2: {
-          value: "One Click DB is the fastest way to add dynamic data to any website. For yourself and for clients. No fancy interface. No plugins. Just data.",
-          type: "string"
-        },
-        button_text: {
-          value: "Generate DB -->",
+          value: "One Click DB is the fastest way to add dynamic data to your website.<br/>Or your client's website. Don’t believe me? <a href='' class='button'>Try it for yourself.</a>",
           type: "string"
         },
         caption: {
