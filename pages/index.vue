@@ -16,19 +16,21 @@
 
      <div class="absolute left-0 right-0 hidden lg:block">
        <div class="mx-auto max-w-5xl -mt-10">
-        <span class="text-8xl font-black text-blue-50 float-left transform rotate-6">{{</span>
-        <span class="text-8xl font-black text-blue-50 float-right transform -rotate-6">}}</span>
+        <span class="text-8xl font-black text-blue-50 float-left transform rotate-6">&#123;&#123;</span>
+        <span class="text-8xl font-black text-blue-50 float-right transform -rotate-6">&#125;&#125;</span>
        </div>
     </div>  
 
-    <div class="prose mx-auto max-w-xl text-center">      
-      <h1 class="">The fastest way to go<br class="hidden md:block"/> from static to dynamic.</h1>      
-      <p>OneClickDB is the fastest way to add dynamic data to your website.<br class="hidden lg:block"/>Or your client's website. Or that cool template you just saw. <nuxt-link to="/auth/start" class='button'>Try it for yourself.</nuxt-link></p>      
+    <div class="prose mx-auto max-w-4xl text-center mt-12">      
+      <h1 class="">Static Site. Dynamic Data.</h1>      
+      <div class="mx-auto max-w-2xl">
+        <p>Is OneClickDB the <em><strong>fastest</strong></em> way to edit your website? Sure, but nevermind that. <br class="hidden md:block"/>Because it’s the most <em><strong>enjoyable</strong></em> way. <nuxt-link to="/auth/start" class='button'>See for yourself --></nuxt-link></p>      
+      </div>
       
-       <div class="text-center mt-12">
-        <p><nuxt-link to="/#developers">Fast for <strong>Developers</strong></nuxt-link></p>
-        <p><nuxt-link to="/#editors">Fast for <strong>Editors</strong></nuxt-link></p>
-        <p><nuxt-link to="/#visitors">Fast for <strong>Visitors</strong></nuxt-link></p>
+       <div class="text-center mt-20">
+        <p><nuxt-link to="/#developers">Enjoyed by <strong>Developers</strong></nuxt-link></p>
+        <p><nuxt-link to="/#editors">Enjoyed by <strong>Editors</strong></nuxt-link></p>
+        <p><nuxt-link to="/#visitors">Enjoyed by <strong>Visitors</strong></nuxt-link></p>
       </div>
     </div>
 
@@ -49,17 +51,17 @@
 
 
     <div class="prose mx-auto max-w-xl mt-32" id="developers">  
-      <h2>Fast for Developers</h2>
+      <h2>Enjoyed by Developers</h2>
       <div v-html="$md.render(content.why_content.value )"></div>
     </div>
 
     <div class="prose mx-auto max-w-xl mt-32" id="editors">  
-      <h2>Fast for Editors</h2>
+      <h2>Enjoyed by Editors</h2>
       <div v-html="$md.render(content.why_content.value )"></div>
     </div>
 
     <div class="prose mx-auto max-w-xl mt-32" id="visitors">  
-      <h2>Fast for Visitors</h2>
+      <h2>Enjoyed by Visitors</h2>
       <div>        
         <p>Content Management Systems are slow. But OneClickDB is fast, with an average response time of <code>0.052 seconds</code>.</p>
         <p>Speed <a href="https://www.nngroup.com/articles/website-response-times/" target="_blank">is critical</a> for a good user experience. So which should you choose?</p>
@@ -213,7 +215,7 @@ export default {
           type: "string"
         },
         pricing_content: {
-          value: "OneClickDB is free forever for a single user with a single database. And pretty darn affordable if you wanna upgrade. But hurry hurry hurry if you wanna save some money, because the **Early Bird** plan is going away forever as soon as the **Pro** plan is ready (literally any day now).\n\nWhy so cheap? The same reason it’s so fast. Caching!",
+          value: "OneClickDB is free forever for a single user with a single database. And pretty darn affordable if you wanna upgrade. But hurry hurry hurry if you wanna save some cash-money, because the **Early Bird** plan is going away forever as soon as the **Pro** plan is ready (literally any day now).\n\nWhy so cheap? The same reason it’s so fast. Caching!",
           type: "text"
         },
         roadmap_title: {
@@ -240,6 +242,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+h1 {
+  font-weight: 900;
+  font-size: 2.5em;
+  margin-bottom: 0;
+}
 #pricing {
   h2 {
     @apply mb-2;
