@@ -108,6 +108,7 @@ export const actions = {
                     let dArray = []                    
                     for (const [k, v] of Object.entries(d)) {
                         dArray.push({
+                            "id": Math.random().toString(36).slice(2),
                             "key": k,
                             "type": v.type,
                             "value": v.value ? v.value : "",
@@ -118,6 +119,7 @@ export const actions = {
             }
 
             objArray.push({
+                "id": Math.random().toString(36).slice(2),
                 "key": key,
                 "type": value.type,
                 "value": value.value ? value.value : "",

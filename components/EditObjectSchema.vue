@@ -8,7 +8,7 @@
                 <h3>Type</h3>
             </div>
         </div>
-        <div v-for="(pair, index) in pairs" :key="'level-' + level + '-' + index">
+        <div v-for="(pair, index) in pairs" :key="'level-' + level + '-' + pair.id">
             <div :class="[pair.type == 'collection' ? 'bg-gray-900 p-2 -mx-2 rounded-sm mb-5' : '']">
                 <div class="grid grid-cols-12 gap-5 mb-5 items-center">
                     <div class="col-span-6"><input type="text" class="input w-full" v-model="pair.key" @input="changeKey(index)" /></div>
@@ -63,8 +63,10 @@ export default {
         },
         async addNewPair() {
             var np = {}
+            let id = Math.random().toString(36).slice(2)
             if(this.level == 1) {
                 np = {
+                    id: id,
                     key: '',
                     type: 'string',
                     value: '',
@@ -73,6 +75,7 @@ export default {
                 }
             } else {
                 np = {
+                    id: id,
                     key: '',
                     type: 'string',
                 }

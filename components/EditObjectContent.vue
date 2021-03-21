@@ -1,14 +1,14 @@
 <template>
     <div>
         <template v-for="(pair, index) in pairs">
-            <div :key="index" class="mb-5" v-if="pair.type != 'collection' || pair.schema.length">
+            <div :key="pair.id" class="mb-5" v-if="pair.type != 'collection' || pair.schema.length">
                 <div class="prose pl-3 mb-1">
                     <h4>{{ pair.key }}</h4>
                 </div>
                 <div>
                     <div v-if="pair.type == 'collection'" class="bg-gray-900 p-5 -mx-2 rounded-sm mb-5">
                         <template v-for="(d, i) in pair.data">
-                            <edit-object-row :d="d" :key="d.key" :level1index="index" @update="changeCollectionData(index)" @delete="deleteCollectionData(index, i)" />
+                            <edit-object-row :d="d" :key="d.id" :level1index="index" @update="changeCollectionData(index)" @delete="deleteCollectionData(index, i)" />
                         </template>
                         <span class="inline-block mt-5 cursor-pointer underline text-white hover:bg-blue-800" @click="addRow(index)">
                             + Add
