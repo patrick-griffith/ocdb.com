@@ -42,7 +42,7 @@
         <h2 v-html="content.pricing_title.value"></h2>
         <div v-html="$md.render(content.pricing_content.value )"></div>        
       </div>
-      <div class="grid grid-cols-3 gap-5 mx-auto">
+      <div class="grid md:grid-cols-3 gap-5 mx-auto">
         <div class="bg-blue-100 p-5 prose">
           <h2 class="mb-0">Solo</h2>
           <h4>FREE</h4>

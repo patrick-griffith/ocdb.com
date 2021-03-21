@@ -5,15 +5,15 @@
 
         <div class="container">
 
-            <div class="mt-10 mx-auto max-w-3xl mb-20">                
+            <div class="mt-10 mx-auto max-w-3xl mb-20 ">                
                 
                 <the-database-nav />
                 
                 
-                <div v-if="schemaMode" class="bg-gray-900 p-8 rounded-md">
+                <div v-if="schemaMode" class="bg-gray-900 p-8 md:rounded-md -mx-8 md:mx-0">
                     <edit-object-schema :passedPairs="pairs" :level="1" />
                 </div>
-                <div v-else class="bg-blue-50 p-4 md:p-8 rounded-md">
+                <div v-else class="bg-blue-50 p-4 md:p-8 md:rounded-md -mx-8 md:mx-0">
                     <edit-object-content :passedPairs="pairs" :level="1" />                                
                 </div>                
                 
