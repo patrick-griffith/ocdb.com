@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="h-10 px-4 bg-white rounded-sm mb-2 flex items-center hover:bg-gray-200 cursor-pointer">
-            <span class="flex-grow" :class="[d[0].value ? '' : 'text-gray-400']" @click="modalVisible = true">
+        <div class="h-10 px-4 bg-white rounded-sm mb-2 flex items-center hover:bg-gray-200 cursor-pointer"  @click="modalVisible = true">
+            <span class="flex-grow" :class="[d[0].value ? '' : 'text-gray-400']">
                 {{ d[0].value ? d[0].value : 'EMPTY' }}
             </span>
             <span><v-icon name="long-arrow-alt-right" /></span>
