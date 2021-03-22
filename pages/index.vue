@@ -22,9 +22,9 @@
     </div>  
 
     <div class="prose mx-auto max-w-4xl text-center mt-12">      
-      <h1 class="">Static Site. Dynamic Data.</h1>      
-      <div class="mx-auto max-w-2xl">
-        <p>Is OneClickDB the <em><strong>fastest</strong></em> way to edit your website? Sure, but nevermind that. <br class="hidden md:block"/>Because it’s the most <em><strong>enjoyable</strong></em> way. Ahhhh. Refreshing. <nuxt-link to="/auth/start" class='button link-rotate inline-block'>See for yourself --></nuxt-link></p>      
+      <h1 class="">Add Dynamic Data<br class="hidden md:block"/> to any Static Site</h1>      
+      <div class="mx-auto max-w-lg">
+        <p class="text-lg">Generate your database with one click. Then add one line of code to your website. Or to your client’s website. Or to that hot new template you saw last week. <nuxt-link to="/auth/start" class='button link-rotate inline-block'>Try it now --></nuxt-link></p>      
       </div>
       
        <div class="text-center mt-20">
