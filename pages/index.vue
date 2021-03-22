@@ -60,9 +60,9 @@
           <li>Optionally hand it off to teammmates or clients to do all the data entry.</li>
           <li>Use your favorite JavaScript (or Python, or PHP, or Rails, or whatever) package to fetch the JSON API endpoint.</li>
           <li>Insert the data wherever you want it on the page.</li>
-          <li>Your website automatically shows your most up-to-date data!</li>
+          <li>Your website automatically shows your most up-to-date content!</li>
         </ol>
-        <p>Here's an example that Brian made using oldschool vanilla JavaScript...</p>
+        <p>Here's an example that <a href="https://twitter.com/brianball" target="_blank">Brian</a> made using oldschool vanilla JavaScript...</p>
       </div>      
     </div>
     <div class="mx-auto max-w-4xl">
@@ -77,9 +77,8 @@
     <div class="prose mx-auto max-w-xl mt-32" id="editors">  
       <h2>Enjoyed by Editors</h2>
       <div>
-        <p>
-          
-        </p>
+        <p>Life is busy. Between work and frisbee practice it’s really hard to make time for slightly less important things, like updating your website with your new contact info. Or editing that typo that your dad told you about. Or publishing your latest blog post.</p>
+        <p>That’s where OneClickDB comes in. OCDB takes all the friction out of the editing process, so you can go from idea to edit in 4.7 seconds (seriously, I timed it) whether you’re at your desk or your daughter's soccer practice.</p>
       </div>
     </div>
 
