@@ -9,7 +9,7 @@
                 <label class="label">Email Address</label>                    
                 <div><input class="input w-full" ref="email" type="email" v-validate="'required|email|max:191'" name="email" placeholder="name@email.com" v-model="email" /></div>
                 <div class="validate-error" v-if="errors.first('email')">{{ errors.first('email') }}</div>
-                <button class="button b2 ml-2 mt-10" native-type="submit"><span class="load"></span>Send Reset Code</button>
+                <button class="button b2 ml-2 mt-10 link-rotate inline-block" native-type="submit"><span class="load"></span>Send Reset Code</button>
             </div>
 
             <div v-if="step === 1">

@@ -12,7 +12,7 @@
             <div><input class="input w-full" type="password" v-validate="'required|min:6|max:191'" name="password" ref="password" placeholder="********" v-model="password" /></div>
             <div class="validate-error" v-if="errors.first('password')">{{ errors.first('password') }}</div>
 
-            <button class="button b2 ml-2 mt-10" native-type="submit"><span class="load"></span>Login</button>
+            <button class="button b2 ml-2 mt-10 link-rotate inline-block" native-type="submit"><span class="load"></span>Login</button>
 
             <p class="mt-10 ml-2 prose">
                 Forgot your password? <nuxt-link to="/auth/reset">Reset it.</nuxt-link><br/>

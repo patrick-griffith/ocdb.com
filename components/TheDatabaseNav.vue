@@ -15,7 +15,7 @@
                 </div>
             </label>            
             <div class="text-center md:text-right flex-grow relative">
-                <a :href="jsonUrl" class="text-blue-600 font-bold button" target="_blank">Get JSON URL</a>
+                <a :href="jsonUrl" class="text-blue-600 font-bold button link-rotate inline-block" target="_blank">Get JSON URL</a>
 
 
                 <span class="ml-5">

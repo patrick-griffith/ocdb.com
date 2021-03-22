@@ -9,7 +9,7 @@
             <div id="email-auth-code" class="container max-w-xl grid grid-cols-6 gap-2 md:gap-4">
                 <EmailAuthCodeNumber ref="numbers" v-for="(number, index) in numbers" :number="number" :index="index" @update="updateNumber" @go="verify" :key="'email-auth-number-' + index"/>
             </div>
-            <button class="button bfancy mt-10" native-type="submit" :disabled="!code"><span class="load"></span>Verify</button>
+            <button class="button bfancy mt-10 link-rotate inline-block" native-type="submit" :disabled="!code"><span class="load"></span>Verify</button>
         </form>
     </div>
 </template>

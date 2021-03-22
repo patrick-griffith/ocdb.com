@@ -13,7 +13,7 @@
                 :cancel-url="cancelUrl"
                 @loading="v => loading = v"
             />
-            <span class="text-blue-600 font-bold button"  @click="checkout">UPGRADE</span>    
+            <span class="text-blue-600 font-bold button link-rotate inline-block"  @click="checkout">UPGRADE</span>    
         </template>
     
     </span>

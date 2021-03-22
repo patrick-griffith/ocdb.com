@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="mt-10 ml-2">
-                    <button class="button" native-type="submit"><span class="load"></span>Create Account --></button>
+                    <button class="button link-rotate inline-block" native-type="submit"><span class="load"></span>Create Account --></button>
                 </div>
 
                 <p class="mt-10 ml-2 prose">

@@ -1,8 +1,8 @@
 <template>
   <div class="container relative">
-    <div class="my-10 mx-auto max-w-lg text-center">      
+    <div class="my-10 mx-auto max-w-lg text-center">
       <div>
-        <nuxt-link to="/">
+        <nuxt-link to="/" class="inline-block">
           <img src="/img/logo.png" alt="OneClickDB logo" width="50" class="inline" />
         </nuxt-link>
       </div>
@@ -10,7 +10,7 @@
       <div class="text-blueGray-600 bg-blue-100 inline-block  py-2 px-5 rounded-md mt-5">
                
         <nuxt-link to="/home" class="text-blue-600 font-bold hover:underline">login</nuxt-link>
-        <nuxt-link to="/auth/start" class="button text-blue-600 bg-amber-300 font-bold ml-5" v-if="!$auth.loggedIn">sign up for free</nuxt-link>
+        <nuxt-link to="/auth/start" class="button text-blue-600 bg-amber-300 font-bold ml-5 link-rotate inline-block" v-if="!$auth.loggedIn">sign up for free</nuxt-link>
       </div>
     </div>  
 
@@ -24,7 +24,7 @@
     <div class="prose mx-auto max-w-4xl text-center mt-12">      
       <h1 class="">Static Site. Dynamic Data.</h1>      
       <div class="mx-auto max-w-2xl">
-        <p>Is OneClickDB the <em><strong>fastest</strong></em> way to edit your website? Sure, but nevermind that. <br class="hidden md:block"/>Because it’s the most <em><strong>enjoyable</strong></em> way. Ahhhh. Refreshing. <nuxt-link to="/auth/start" class='button'>See for yourself --></nuxt-link></p>      
+        <p>Is OneClickDB the <em><strong>fastest</strong></em> way to edit your website? Sure, but nevermind that. <br class="hidden md:block"/>Because it’s the most <em><strong>enjoyable</strong></em> way. Ahhhh. Refreshing. <nuxt-link to="/auth/start" class='button link-rotate inline-block'>See for yourself --></nuxt-link></p>      
       </div>
       
        <div class="text-center mt-20">
@@ -111,13 +111,13 @@
           <h2 class="mb-0">Solo</h2>
           <h4>FREE</h4>
           <p>1 user. 1 database.<br/>Perfect for your personal website.</p>
-          <nuxt-link to="/auth/start" class="text-blue-600 font-bold button"  v-if="!$auth.loggedIn">Sign Up Now</nuxt-link>
+          <nuxt-link to="/auth/start" class="text-blue-600 font-bold button link-rotate inline-block"  v-if="!$auth.loggedIn">Sign Up Now</nuxt-link>
         </div>
         <div class="bg-blue-100 py-5 px-8 rounded-md prose">
           <h2>Early Bird</h2>
           <h4>$75 once</h4>
           <p>Lifetime access to the Pro plan. Probably hurry up if you want this.</p>
-          <nuxt-link to="/auth/start" class="text-blue-600 font-bold button" v-if="!$auth.loggedIn">Sign Up Now</nuxt-link>
+          <nuxt-link to="/auth/start" class="text-blue-600 font-bold button link-rotate inline-block" v-if="!$auth.loggedIn">Sign Up Now</nuxt-link>
           <upgrade v-else />
           
         </div>
@@ -137,7 +137,7 @@
       </div>
       <div class="twitter-wrapper"><blockquote class="twitter-tweet tw-align-center"  data-conversation="none"><p lang="en" dir="ltr">Implementing <a href="https://twitter.com/MrPatGriffith?ref_src=twsrc%5Etfw">@MrPatGriffith</a> &#39;s OneClickDB idea with the help of <a href="https://twitter.com/panphora?ref_src=twsrc%5Etfw">@panphora</a> ( who&#39;s challenging us all to a hackathon )<br><br>Here are the steps in a thread:<br><br>🧵<br><br>1. - Sign up at <a href="https://t.co/2TWTsVJsjP">https://t.co/2TWTsVJsjP</a><br><br>👇</p>&mdash; Brian Ball (@brianball) <a href="https://twitter.com/brianball/status/1373724308212654081?ref_src=twsrc%5Etfw">March 21, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> </div>
       <div class="text-center mt-5">
-        <a class="button text-blue-600 font-bold" href="https://twitter.com/brianball/status/1373724308212654081?ref_src=twsrc%5Etfw" target="_blank">View this thread --></a>      
+        <a class="button text-blue-600 font-bold link-rotate inline-block" href="https://twitter.com/brianball/status/1373724308212654081?ref_src=twsrc%5Etfw" target="_blank">View this thread --></a>      
       </div>
 
     </div>
@@ -174,7 +174,7 @@
     </div>
 
     <div class="text-center">
-      <nuxt-link to="/auth/start" class="button text-blue-600 bg-amber-300 font-bold my-10 text-3xl inline-block" v-if="!$auth.loggedIn">sign up already</nuxt-link>
+      <nuxt-link to="/auth/start" class="button text-blue-600 bg-amber-300 font-bold my-10 text-3xl link-rotate inline-block" v-if="!$auth.loggedIn">sign up already</nuxt-link>
     </div>
 
     <div class="prose mx-auto max-w-xl mb-20 text-center">
@@ -183,10 +183,20 @@
     </div>  
 
 
+    
+
+
   </div>
 </template>
 <script>
 export default {
+  head() {
+    return {
+        htmlAttrs: {
+            class: 'rotating-bg'
+        }
+    };
+  },
   data() {
     return {
       editor_title: `Enjoyed by Editors`,
@@ -231,4 +241,5 @@ h1 {
     }
   }
 }
+
 </style>

@@ -91,3 +91,24 @@ blockquote.twitter-tweet {
   }
   
   
+//   @keyframes bg {
+//     0% {background: white;}
+//     100% { @apply bg-gray-50;}
+//   }
+//   .rotating-bg {
+//     z-index: -1;
+//     animation-name: bg;
+//     animation-duration: 4s;
+//     animation-direction: alternate;
+//     animation-iteration-count: infinite;
+//   }
+
+  .pre-rotate {
+    @apply transition duration-200 ease-in-out transform;
+  }
+  .link-rotate {
+    @extend .pre-rotate;
+    &:hover {
+        @apply rotate-2;
+    }
+  }
