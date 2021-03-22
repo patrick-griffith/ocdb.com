@@ -14,7 +14,7 @@
       </div>
     </div>  
 
-     <div class="absolute left-0 right-0 hidden lg:block">
+     <div class="absolute left-0 right-0 hidden lg:block" style="z-index: -1;">
        <div class="mx-auto max-w-5xl -mt-10">
         <span class="text-8xl font-black text-blue-50 float-left transform rotate-6">&#123;&#123;</span>
         <span class="text-8xl font-black text-blue-50 float-right transform -rotate-6">&#125;&#125;</span>
@@ -24,7 +24,7 @@
     <div class="prose mx-auto max-w-4xl text-center mt-12">      
       <h1 class="">Static Site. Dynamic Data.</h1>      
       <div class="mx-auto max-w-2xl">
-        <p>Is OneClickDB the <em><strong>fastest</strong></em> way to edit your website? Sure, but nevermind that. <br class="hidden md:block"/>Because it’s the most <em><strong>enjoyable</strong></em> way. <nuxt-link to="/auth/start" class='button'>See for yourself --></nuxt-link></p>      
+        <p>Is OneClickDB the <em><strong>fastest</strong></em> way to edit your website? Sure, but nevermind that. <br class="hidden md:block"/>Because it’s the most <em><strong>enjoyable</strong></em> way. Ahhhh. Refreshing. <nuxt-link to="/auth/start" class='button'>See for yourself --></nuxt-link></p>      
       </div>
       
        <div class="text-center mt-20">
@@ -52,19 +52,42 @@
 
     <div class="prose mx-auto max-w-xl mt-32" id="developers">  
       <h2>Enjoyed by Developers</h2>
-      <div v-html="$md.render(content.why_content.value )"></div>
+      <div>
+        <p><strong>C. M. S.</strong> <em>CMS.</em> <strong><em>CMS.</em></strong> Oh boy, those three letters scare me.</p>
+        <p>But worry not! Instead of spending 4 hours setting up a headless CMS or 40 hours setting up a WordPress site... it'll take you about <strong>4 minutes</strong> to get all of this up and running.</p>
+        <ol>
+          <li>Create, edit, and publish your database(s) in a matter of seconds.</li>
+          <li>Optionally hand it off to teammmates or clients to do all the data entry.</li>
+          <li>Use your favorite JavaScript (or Python, or PHP, or Rails, or whatever) package to fetch the JSON API endpoint.</li>
+          <li>Insert the data wherever you want it on the page.</li>
+          <li>Your website automatically shows your most up-to-date data!</li>
+        </ol>
+        <p>Here's an example that Brian made using oldschool vanilla JavaScript...</p>
+      </div>      
+    </div>
+    <div class="mx-auto max-w-4xl">
+      <p class="codepen" data-height="392" data-theme-id="dark" data-default-tab="js,result" data-user="ideabrian" data-slug-hash="abpooOd" style="height: 392px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="TeamMrPatGriffith">
+        <span>See the Pen <a href="https://codepen.io/ideabrian/pen/abpooOd">
+        TeamMrPatGriffith</a> by Brian Ball (<a href="https://codepen.io/ideabrian">@ideabrian</a>)
+        on <a href="https://codepen.io">CodePen</a>.</span>
+      </p>
+      <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
     </div>
 
     <div class="prose mx-auto max-w-xl mt-32" id="editors">  
       <h2>Enjoyed by Editors</h2>
-      <div v-html="$md.render(content.why_content.value )"></div>
+      <div>
+        <p>
+          
+        </p>
+      </div>
     </div>
 
     <div class="prose mx-auto max-w-xl mt-32" id="visitors">  
       <h2>Enjoyed by Visitors</h2>
       <div>        
         <p>Content Management Systems are slow. But OneClickDB is fast, with an average response time of <code>0.052 seconds</code>.</p>
-        <p>Speed <a href="https://www.nngroup.com/articles/website-response-times/" target="_blank">is critical</a> for a good user experience. So which should you choose?</p>
+        <p>Does speed matter? <a href="https://www.nngroup.com/articles/website-response-times/" target="_blank">These</a> <a href="https://neilpatel.com/blog/speed-is-a-killer/" target="_blank">smart</a> <a href="https://moz.com/blog/why-site-speed-still-matters" target="_blank">folks</a> <a href="https://moz.com/learn/seo/page-speed" target="_blank">sure</a> <a href="https://www.cloudflare.com/learning/performance/why-site-speed-matters/" target="_blank">think</a> <a href="https://web.dev/why-speed-matters/" target="_blank">so</a>.</p>
       </div>
     </div>    
 
@@ -112,14 +135,15 @@
     <div class="prose mx-auto max-w-xl mt-32" id="roadmap">  
       <h2>Roadmap</h2>
       <div>
-        <p>OneClickDB was built during <a href="https://twitter.com/panphora/status/1372575280049631238" target="_blank">a hackathon</a> in March 2021. It’s already super useful for a lot of use cases, and I’m actively working on making it even more so (without compromising the absurd simplicity).</p>
+        <p>OneClickDB was built during <a href="https://twitter.com/panphora/status/1372575280049631238" target="_blank">a hackathon</a> in March 2021. It’s already super useful for a lot of use cases, and I’m actively working on making it even more so (without compromising the absurd simplicity).</p>        
         <p>Here is some of what’s in store for the next month.</p>
         <ul>
-          <li><strong>A bunch of small stuff</strong> like autosave notifications, form error handlers, autofocus, etc.</li>
+          <li><strong>A bunch of small stuff</strong> like autosave notifications, form error handlers, input autofocus, drag-to-reorder, etc.</li>
           <li><strong>Images:</strong> adding an image content type that let's editors easily upload or paste an image, then stores the file and returns the url in the response.          
           <li><strong>Multi-DB:</strong> <em>Pro</em> users will be able to manage unlimited databases from one account.</li>
-          <li><strong>Collaboration:</strong> <em>Pro</em> users will be able to add unlimited collaborators to their</li>
-          <li><strong>Restricted client mode:</strong> Are you using OneClickDB as a CMS for a client? This feature let's you disable "structure mode" for clients, so they can update the content but not mess with the schema.</li>
+          <li><strong>Collaboration:</strong> <em>Pro</em> users will be able to add unlimited collaborators to their account.</li>
+          <li><strong>Restricted Client Mode:</strong> Are you using OneClickDB as a CMS for a client? This feature let's you disable "structure mode" for clients, so they can update the content but not mess with the schema.</li>
+          <li><strong>Deploy Script:</strong> Automatically do something whenever you click publish. eg you could use use dynamic data with a static site generator 🤯</li>
           <li><strong>Versioning:</strong> A simple way to go back in time in case you break something :)</li>
           <li><strong>Templates:</strong> Export your database structure and share it with a friend. They can then install the exact same database with one click.</li>
           <li><strong>API:</strong> some very simple endpoints to allow for two-way editing. Eg, your database can edit your website, and your website can edit your database. This will open the door for a whoooollleeee bunch of new use cases.</li>
@@ -130,7 +154,7 @@
     <div class="prose mx-auto max-w-xl mt-32 mb-32">
       <h2>Questions</h2>
       <p>Questions? Concerns? Feedback?</p> 
-      <p><a href="mailto:mister@patgriffith.com">Email me</a> and I’d be happy to bend over backwards as far as I humanly can. Seriously. This is my project, you are my customer, and there’s literally no way I’d rather spend my time than talking to you. Because <em>you</em> are the key to making OneClickDB a success.</p>
+      <p><a href="mailto:mister@patgriffith.com">Email me</a> or <a href="https://twitter.com/mrpatgriffith" target="_blank">tweet at me</a> and I’d be happy to bend over backwards as far as I humanly can. Seriously. This is my project, you are my customer, and there’s literally no way I’d rather spend my time than talking to you. Because <em>you</em> are the key to making OneClickDB a success.</p>
       <p>And if you’re on the fence... check out how real humans are using OCDB:</p>
     </div>
 
