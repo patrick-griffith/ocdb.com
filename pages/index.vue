@@ -62,16 +62,16 @@
           <li>Insert the data wherever you want it on the page.</li>
           <li>Your website automatically shows your most up-to-date content!</li>
         </ol>
-        <p>Here's an example that <a href="https://twitter.com/brianball" target="_blank">Brian</a> made using oldschool vanilla JavaScript...</p>
+        <p>Here's a VueJS example.</p>
       </div>      
     </div>
     <div class="mx-auto max-w-4xl">
-      <p class="codepen" data-height="392" data-theme-id="dark" data-default-tab="js,result" data-user="ideabrian" data-slug-hash="abpooOd" style="height: 392px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="TeamMrPatGriffith">
-        <span>See the Pen <a href="https://codepen.io/ideabrian/pen/abpooOd">
-        TeamMrPatGriffith</a> by Brian Ball (<a href="https://codepen.io/ideabrian">@ideabrian</a>)
-        on <a href="https://codepen.io">CodePen</a>.</span>
-      </p>
-      <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+      <p class="codepen" data-height="428" data-theme-id="dark" data-default-tab="js,result" data-user="mrpatgriffith" data-slug-hash="OJWLyYN" style="height: 428px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Vue Axios API Example">
+      <span>See the Pen <a href="https://codepen.io/mrpatgriffith/pen/OJWLyYN">
+      Vue Axios API Example</a> by Pat Griffith (<a href="https://codepen.io/mrpatgriffith">@mrpatgriffith</a>)
+      on <a href="https://codepen.io">CodePen</a>.</span>
+    </p>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
     </div>
 
     <div class="prose mx-auto max-w-xl mt-32" id="editors">  
