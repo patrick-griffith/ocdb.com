@@ -75,10 +75,21 @@
     </div>
 
     <div class="prose mx-auto max-w-xl mt-32" id="editors">  
-      <h2>Enjoyed by Editors</h2>
-      <div>
-        <p>Life is busy. Between work and frisbee practice it’s really hard to make time for slightly less important things, like updating your website with your new contact info. Or editing that typo that your dad told you about. Or publishing your latest blog post.</p>
-        <p>That’s where OneClickDB comes in. OCDB takes all the friction out of the editing process, so you can go from idea to edit in 4.7 seconds (seriously, I timed it) whether you’re at your desk or your daughter's soccer practice.</p>
+      <h2 v-html="$md.render(editor_title)"></h2>
+      <div v-html="$md.render(editor_content)"></div>
+    </div>
+
+    <div class="mt-10 mx-auto max-w-3xl mb-5">
+      <div class="bg-blue-50 p-4 md:p-8 md:rounded-md -mx-8 md:mx-0">
+          <div class="prose pl-3 mb-1">
+              <h4>editors_title</h4>
+          </div>
+          <input type="text" class="input w-full" v-model="editor_title" />
+
+          <div class="prose pl-3 mb-1 mt-5">
+              <h4>editors_content</h4>              
+          </div>
+          <textarea class="input w-full" v-model="editor_content"></textarea>
       </div>
     </div>
 
@@ -92,8 +103,8 @@
 
     <div id="pricing" class=" mt-32">
       <div class="prose mx-auto max-w-xl mb-10">
-        <h2>Grab Your Wallet!</h2>
-        <div v-html="$md.render(content.pricing_content.value )"></div>        
+        <h2>Enjoyed by Your Wallet</h2>
+        <div>OneClickDB is free forever for a single user with a single database. And pretty darn affordable if you wanna upgrade. But hurry hurry hurry if you wanna save some cash-money, because the **Early Bird** plan is going away forever as soon as the **Pro** plan is ready (literally any day now).\n\nWhy so cheap? The same reason it’s so fast. Caching!</div>        
       </div>
       <div class="grid md:grid-cols-3 gap-5 mx-auto">
         <div class="bg-blue-100 py-5 px-8 rounded-md prose">
@@ -172,85 +183,14 @@
     </div>  
 
 
-    <div class="fixed right-0 bottom-0  mr-10 bg-gray-200 hidden lg:block" style="width: 500px;" :class="[exampleVisible ? 'top-0 mt-20' : '']" v-if="false">
-      <div class="bg-gray-900 py-3 px-5">
-        <span class="text-gray-300 flex items-center cursor-pointer hover:text-white" @click="exampleVisible = !exampleVisible">
-          <span>
-            <v-icon name="chevron-circle-down" scale="1.5" v-if="exampleVisible" />
-            <v-icon name="chevron-circle-up" scale="1.5" v-else />
-          </span>
-          <span class="ml-2 font-bold">{{ exampleVisible ? 'Hide Me' : 'Edit Me' }}</span>
-        </span>
-      </div>
-      <div class="px-5 absolute inset-0 mt-16 mb-5 overflow-scroll" v-if="exampleVisible">
-        <div v-for="(key, index) in keys" :key="index" class="mb-4">
-          <label v-html="key" class="text-gray-700 text-sm block mb-1"></label>
-          <textarea class="input w-full" v-if="content[key].type == 'text'" v-model="content[key].value"></textarea>
-          <input class="input w-full" type="text" v-else v-model="content[key].value" />
-        </div>
-
-        <div v-if="exampleJsonVisible">          
-          <div class="overflow-hidden prose pt-4">
-            <p>Copy this JSON and email it to <a href="mailto:mister@patgriffith.com">mister@patgriffith.com</a> and I might just use some of it!</p>
-            <code ><pre contenteditable="true">{{ content }}</pre></code>
-          </div>
-        </div>
-        <span v-else class="button mt-5" @click="exampleJsonVisible = true">Save</span>
-
-      </div>
-    </div>
-
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      exampleVisible: false,
-      exampleJsonVisible: false,
-      content: {
-        h1: {
-          value: "The fastest way to create, edit, and deploy a database.",
-          type: "string"
-        },
-        h2: {
-          value: "OneClickDB is the fastest way to add dynamic data to your website.<br/>Or your client's website. Don’t believe me? <a href='' class='button'>Try it for yourself.</a>",
-          type: "string"
-        },
-        caption: {
-          value: "Create a database in about 25 seconds.<br/>Then install it on your website in about 2 minutes.",
-          type: "string"
-        },
-        why_title: {
-          value: "Why choose OneClickDB?",
-          type: "string"
-        },
-         why_content: {
-          value: `I’m  happy you asked 🤣! Here are a few lovely use cases:
-          \n\n1. **Keep your website up to date.**
-          \n\n2. **Give your clients the worl's simplest CMS.**
-          \n\n3. **Give your clients the worl's simplest CMS.**
-          `,
-          type: "text"
-        },
-        pricing_title: {
-          value: "Pricing",
-          type: "string"
-        },
-        pricing_content: {
-          value: "OneClickDB is free forever for a single user with a single database. And pretty darn affordable if you wanna upgrade. But hurry hurry hurry if you wanna save some cash-money, because the **Early Bird** plan is going away forever as soon as the **Pro** plan is ready (literally any day now).\n\nWhy so cheap? The same reason it’s so fast. Caching!",
-          type: "text"
-        },
-        roadmap_title: {
-          value: "Roadmap",
-          type: "string"
-        },
-        roadmap_content: {
-          value: "Here go a list of features maybe?\n\n- feature 1\n\n- feature 2\n\n- oh hey, markdown is cool",
-          type: "text"
-        },
-
-      }
+      editor_title: `Enjoyed by Editors`,
+      editor_content: `Life is busy. Between work and frisbee practice it’s really hard to make time for slightly less important things, like updating your website with your new contact info. Or editing that typo that your dad told you about. Or publishing your latest blog post.\n\nThat’s where OneClickDB comes in. OCDB takes all the friction out of the editing process, so you can go from idea to edit in 4.7 seconds (seriously, I timed it) whether you’re at your desk or your daughter's soccer practice.\n\nUse the editor below to change me.`
     }
   },
   computed: {
