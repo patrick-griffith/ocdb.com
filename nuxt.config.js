@@ -118,7 +118,19 @@ export default {
   },
   netlifyFiles: {
     netlifyToml: {
-      redirects: [        
+      redirects: [
+        {
+          from: 'https://ocdb.patgriffith.com',
+          to: 'https://oneclickdb.com',
+          status: 301,
+          force: true
+        },
+        {
+          from: 'http://ocdb.patgriffith.com',
+          to: 'https://oneclickdb.com',
+          status: 301,
+          force: true
+        },
       ]
     }
   },
