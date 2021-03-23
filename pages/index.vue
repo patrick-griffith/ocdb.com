@@ -104,7 +104,10 @@
     <div id="pricing" class=" mt-32">
       <div class="prose mx-auto max-w-xl mb-10">
         <h2>Enjoyed by Your Wallet</h2>
-        <div>OneClickDB is free forever for a single user with a single database. And pretty darn affordable if you wanna upgrade. But hurry hurry hurry if you wanna save some cash-money, because the **Early Bird** plan is going away forever as soon as the **Pro** plan is ready (literally any day now).\n\nWhy so cheap? The same reason it’s so fast. Caching!</div>        
+        <div>
+          <p>OneClickDB is free forever for a single user with a single database. And pretty darn affordable if you wanna upgrade. But hurry hurry hurry if you wanna save some cash-money, because the <strong>Early Bird</strong> plan is going away forever as soon as the <strong>Pro</strong> plan is ready (literally any day now).</p>
+          <p>Why so cheap? The same reason it’s so fast. Caching!</p>          
+        </div>
       </div>
       <div class="grid md:grid-cols-3 gap-5 mx-auto">
         <div class="bg-blue-100 py-5 px-8 rounded-md prose">
