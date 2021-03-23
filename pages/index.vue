@@ -22,7 +22,7 @@
     </div>  
 
     <div class="prose mx-auto max-w-4xl text-center mt-12">      
-      <h1 class="">Add Dynamic Data<br class="hidden md:block"/> to any Static Site</h1>      
+      <h1 class="">Power Static Sites<br class="hidden md:block"/> with Dynamic Data</h1>      
       <div class="mx-auto max-w-lg">
         <p class="text-lg">Generate your database with one click. Then add one line of code to your website. Or to your client’s website. Or to that hot new template you saw last week. <nuxt-link to="/auth/start" class='button link-rotate inline-block'>Try it now --></nuxt-link></p>      
       </div>
@@ -118,7 +118,7 @@
         </div>
         <div class="bg-blue-100 py-5 px-8 rounded-md prose">
           <h2>Early Bird</h2>
-          <h4>$75 once</h4>
+          <h4>$60 once</h4>
           <p>Lifetime access to the Pro plan. Probably hurry up if you want this.</p>
           <nuxt-link to="/auth/start" class="text-blue-600 font-bold button link-rotate inline-block" v-if="!$auth.loggedIn">Sign Up Now</nuxt-link>
           <upgrade v-else />
@@ -206,15 +206,6 @@ export default {
       editor_content: `Life is busy. Between work and frisbee practice it’s really hard to make time for slightly less important things, like updating your website with your new contact info. Or editing that typo that your dad told you about. Or publishing your latest blog post.\n\nThat’s where OneClickDB comes in. OCDB takes all the friction out of the editing process, so you can go from idea to edit in 4.7 seconds (seriously, I timed it) whether you’re at your desk or your daughter's soccer practice.\n\nUse the editor below to change me.`
     }
   },
-  computed: {
-    keys() {
-      let arr = []
-      for (const [key, value] of Object.entries(this.content)) {
-        arr.push(key)
-      }
-      return arr
-    }
-  }
 }
 </script>
 <style lang="scss" scoped>

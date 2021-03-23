@@ -62,6 +62,10 @@ export default {
         window.onbeforeunload = this.warnUserOnExit
         if(this.$route.query.upgrade) {
             if(this.$route.query.upgrade == 'booyah' && this.$auth.user.pro == 0) {
+                
+                let urlParts = window.location.href.split('?')
+                window.history.replaceState(null, null, urlParts[0]);
+
                 this.setPro()                
             }
         }

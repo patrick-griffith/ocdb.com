@@ -15,6 +15,7 @@ export default {
     SENTRY_DSN: process.env.SENTRY_DSN,
     ENV: process.env.ENV,
     STRIPE_PK: process.env.STRIPE_PK,
+    STRIPE_PRICE_ID: process.env.STRIPE_PRICE_ID,
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head

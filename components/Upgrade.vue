@@ -28,7 +28,7 @@ export default {
         loading: false,
       items: [
         {
-          price: 'price_1IWzBpJAaIu6PRwyd6zPl4QC',
+          price: process.env.STRIPE_PRICE_ID,
           quantity: 1,
         },
       ],
