@@ -132,6 +132,16 @@ export default {
           status: 301,
           force: true
         },
+        {
+          from: '/bee.js',
+          to: 'https://cdn.splitbee.io/sb.js',
+          status: 200
+        },
+        {
+          from: '/_hive/*',
+          to: 'https://hive.splitbee.io/:splat',
+          status: 200
+        },
       ]
     }
   },
