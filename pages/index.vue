@@ -8,9 +8,8 @@
       </div>
       
       <div class="text-blueGray-600 bg-blue-100 inline-block  py-2 px-5 rounded-md mt-5">
-               
-        <nuxt-link to="/home" class="text-blue-600 font-bold hover:underline">login</nuxt-link>
-        <nuxt-link to="/auth/start" class="button text-blue-600 bg-amber-300 font-bold ml-5 link-rotate inline-block" v-if="!$auth.loggedIn">sign up for free</nuxt-link>
+                       
+        <a href="https://flurly.com/p/oneclickdb-lifetime" target="_blank" class="button text-blue-600 bg-amber-300 font-bold link-rotate inline-block" v-if="!$auth.loggedIn">pre-order now</a>
       </div>
     </div>  
 
@@ -24,7 +23,11 @@
     <div class="prose mx-auto max-w-4xl text-center mt-12">      
       <h1 class="">Power Static Sites<br class="hidden md:block"/> with Dynamic Data</h1>      
       <div class="mx-auto max-w-lg">
-        <p class="text-lg">Generate your database with one click. Then add one line of code to your website. Or to your client’s website. Or to that hot new template you saw last week. <nuxt-link to="/auth/start" class='button link-rotate inline-block'>Try it now --></nuxt-link></p>      
+        <p class="text-lg">Generate your database with one click. Then add one line of code to your website. Or to your client’s website. Or to that hot new template you saw last week. 
+          
+          <a href="https://flurly.com/p/oneclickdb-lifetime" target="_blank" class='button link-rotate inline-block' v-if="!$auth.loggedIn">Pre-order now --></a>
+        
+        </p>      
       </div>
       
        <div class="text-center mt-20">
@@ -114,19 +117,20 @@
           <h2 class="mb-0">Solo</h2>
           <h4>FREE</h4>
           <p>1 user. 1 database.<br/>Perfect for your personal website.</p>
-          <nuxt-link to="/auth/start" class="text-blue-600 font-bold button link-rotate inline-block"  v-if="!$auth.loggedIn">Sign Up Now</nuxt-link>
+          <!-- <nuxt-link to="/auth/start" class="text-blue-600 font-bold button link-rotate inline-block"  v-if="!$auth.loggedIn">Sign Up Now</nuxt-link> -->
         </div>
         <div class="bg-blue-100 py-5 px-8 rounded-md prose">
           <h2>Early Bird</h2>
-          <h4>$60 once</h4>
+          <h4>$75 once</h4>
           <p>Lifetime access to the Pro plan. Probably hurry up if you want this.</p>
-          <nuxt-link to="/auth/start" class="text-blue-600 font-bold button link-rotate inline-block" v-if="!$auth.loggedIn">Sign Up Now</nuxt-link>
+          <a href="https://flurly.com/p/oneclickdb-lifetime" target="_blank" class="button text-blue-600 bg-amber-300 font-bold link-rotate inline-block" v-if="!$auth.loggedIn">pre-order now</a>
+          <!-- <nuxt-link to="/auth/start" class="text-blue-600 font-bold button link-rotate inline-block" v-if="!$auth.loggedIn">Sign Up Now</nuxt-link> -->
           <upgrade v-else />
           
         </div>
         <div class="bg-gray-100 py-5 px-8 rounded-md prose">
           <h2>Pro</h2>
-          <h4>$15/mo</h4>
+          <h4>$25/mo</h4>
           <p>Unlimited users + databases.<br/>Perfect for freelancers and entrepreneurs.</p>
           <span>Available Soon</span>
         </div>
@@ -177,7 +181,8 @@
     </div>
 
     <div class="text-center">
-      <nuxt-link to="/auth/start" class="button text-blue-600 bg-amber-300 font-bold my-10 text-3xl link-rotate inline-block" v-if="!$auth.loggedIn">sign up already</nuxt-link>
+      <!-- <nuxt-link to="/auth/start" class="button text-blue-600 bg-amber-300 font-bold my-10 text-3xl link-rotate inline-block" v-if="!$auth.loggedIn">sign up already</nuxt-link> -->
+      <a href="https://flurly.com/p/oneclickdb-lifetime" target="_blank" class="button text-blue-600 bg-amber-300 font-bold my-10 text-3xl link-rotate inline-block" v-if="!$auth.loggedIn">pre-order already</a>
     </div>
 
     <div class="prose mx-auto max-w-xl mb-20 text-center">
